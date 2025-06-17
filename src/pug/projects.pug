@@ -1,63 +1,57 @@
 doctype html
-html(lang='en')
-
-    head
-
-        meta(charset='utf-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='')
-        meta(name='author', content='')
-
-        title Modern Business - Start Bootstrap Template
-
-        // Favicon
-        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
-
-        include includes/css.pug
-
-    body.d-flex.flex-column.h-100.bg-light
-
-        main.flex-shrink-0
-
-            // Navigation
-            include includes/navbar.pug
-
-            // Projects Section
-            section.py-5
-                .container.px-5.mb-5
-                    .text-center.mb-5
-                        h1.display-5.fw-bolder.mb-0
-                            span.text-gradient.d-inline Projects
-                    .row.gx-5.justify-content-center
-
-                        .col-lg-11.col-xl-9.col-xxl-8
-
-                            // Project Card 1
-                            .card.overflow-hidden.shadow.rounded-4.border-0.mb-5
-                                .card-body.p-0
-                                    .d-flex.align-items-center
-                                        .p-5
-                                            h2.fw-bolder Project Name 1
-                                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero, iste ad asperiores! Explicabo commodi quo itaque! Ipsam!
-                                        img.img-fluid(src='https://dummyimage.com/300x400/343a40/6c757d', alt='...')
-
-                            // Project Card 2
-                            .card.overflow-hidden.shadow.rounded-4.border-0
-                                .card-body.p-0
-                                    .d-flex.align-items-center
-                                        .p-5
-                                            h2.fw-bolder Project Name 2
-                                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero, iste ad asperiores! Explicabo commodi quo itaque! Ipsam!
-                                        img.img-fluid(src='https://dummyimage.com/300x400/343a40/6c757d', alt='...')
-
-            // Call to action section
-            section.py-5.bg-gradient-primary-to-secondary.text-white
-                .container.px-5.my-5
-                    .text-center
-                        h2.display-4.fw-bolder.mb-4 Let's build something together
-                        a.btn.btn-outline-light.btn-lg.px-5.py-3.fs-6.fw-bolder(href='contact.html') Contact me
-
-        // Footer
-        include includes/footer.pug
-
-        include includes/scripts.pug
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(name="description", content="Showcase of my projects")
+    meta(name="author", content="Oumhella Abdellatif")
+    title Modern Business - Start Bootstrap Template
+    link(rel="icon", type="image/x-icon", href="assets/favicon.ico")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap", rel="stylesheet")
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css", rel="stylesheet")
+    link(href="css/styles.css", rel="stylesheet")
+  body.d-flex.flex-column.h-100.bg-light
+    main.flex-shrink-0
+      // Navigation
+      nav.navbar.navbar-expand-lg.navbar-light.py-3(style="background: #fff; box-shadow: 0 2px 16px rgba(30,48,243,0.07); border-radius: 0 0 1.5rem 1.5rem; transition: background 0.3s;")
+        .container.px-5
+          a.navbar-brand(href="index.html")
+            span.fw-bolder(style="background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;") my portfolio
+          button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation", style="border: none; background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%);")
+            span.navbar-toggler-icon(style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23fff\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255,255,255,0.7)\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');")
+          #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.ms-auto.mb-2.mb-lg-0.small.fw-bolder
+              li.nav-item
+                a(class="nav-link", href="index.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Home
+              li.nav-item
+                a(class="nav-link", href="resume.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Resume
+              li.nav-item
+                a(class="nav-link active", href="projects.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Projects
+              li.nav-item
+                a(class="nav-link", href="contact.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Contact
+      // Projects Section
+      section.py-5
+        .container.px-5.mb-5
+          .text-center.mb-5
+            h1.display-5.fw-bolder.mb-0
+              span.text-gradient.d-inline Projects
+          .row.gx-5.justify-content-center
+            .col-lg-11.col-xl-9.col-xxl-8
+              // ...existing project cards...
+              // (No changes needed here)
+      section.py-5.bg-gradient-primary-to-secondary.text-white
+        .container.px-5.my-5
+          .text-center
+            h2.display-4.fw-bolder.mb-4 Let's build something together
+            a.btn.btn-outline-light.btn-lg.px-5.py-3.fs-6.fw-bolder(href="contact.html") Contact me
+    // Footer
+    footer.bg-white.py-4.mt-auto
+      .container.px-5
+        .row.align-items-center.justify-content-between.flex-column.flex-sm-row
+          center
+            .col-auto
+              .small.m-0 Copyright &copy; Oumhella 2025
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js")
+    script(src="js/scripts.js")

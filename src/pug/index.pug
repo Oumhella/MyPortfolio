@@ -1,77 +1,127 @@
 doctype html
-html(lang='en')
-
-    head
-
-        meta(charset='utf-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        meta(name='description', content='')
-        meta(name='author', content='')
-
-        title Personal - Start Bootstrap Theme
-
-        // Favicon
-        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
-
-        include includes/css.pug
-
-    body.d-flex.flex-column.h-100
-
-        main.flex-shrink-0
-
-            // Navigation
-            include includes/navbar.pug
-
-            // Header
-            header.py-5
-                .container.px-5.pb-5
-                    .row.gx-5.align-items-center
-                        .col-xxl-5
-                            // Header text content
-                            .text-center.text-xxl-start
-                                .badge.bg-gradient-primary-to-secondary.text-white.mb-4
-                                    .text-uppercase Design &middot; Development &middot; Marketing
-                                .fs-3.fw-light.text-muted I can help your business to
-                                h1.display-3.fw-bolder.mb-5
-                                    span.text-gradient.d-inline Get online and grow fast
-                                .d-grid.gap-3.d-sm-flex.justify-content-sm-center.justify-content-xxl-start.mb-3
-                                    a.btn.btn-primary.btn-lg.px-5.py-3.me-sm-3.fs-6.fw-bolder(href='resume.html') Resume
-                                    a.btn.btn-outline-dark.btn-lg.px-5.py-3.fs-6.fw-bolder(href='projects.html') Projects
-                        .col-xxl-7
-                            // Header profile picture
-                            .d-flex.justify-content-center.mt-5.mt-xxl-0
-                                .profile.bg-gradient-primary-to-secondary
-                                    // TIP: For best results, use a photo with a transparent background like the demo example below
-                                    // Watch a tutorial on how to do this on YouTube (link)
-                                    img.profile-img(src='assets/profile.png', alt='...')
-                                    .dots-1
-                                        include includes/svg-dots.pug
-                                    .dots-2
-                                        include includes/svg-dots.pug
-                                    .dots-3
-                                        include includes/svg-dots.pug
-                                    .dots-4
-                                        include includes/svg-dots.pug
-
-            // About Section
-            section.bg-light.py-5
-                .container.px-5
-                    .row.gx-5.justify-content-center
-                        .col-xxl-8
-                            .text-center.my-5
-                                h2.display-5.fw-bolder
-                                    span.text-gradient.d-inline About Me
-                                p.lead.fw-light.mb-4 My name is Start Bootstrap and I help brands grow.
-                                p.text-muted Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit dolorum itaque qui unde quisquam consequatur autem. Eveniet quasi nobis aliquid cumque officiis sed rem iure ipsa! Praesentium ratione atque dolorem?
-                                .d-flex.justify-content-center.fs-2.gap-4
-                                    a.text-gradient(href="#!") 
-                                        i.bi.bi-twitter
-                                    a.text-gradient(href="#!") 
-                                        i.bi.bi-linkedin
-                                    a.text-gradient(href="#!") 
-                                        i.bi.bi-github
-
-        // Footer
-        include includes/footer.pug
-
-        include includes/scripts.pug
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(name="description", content="Personal portfolio of Oumhella Abdellatif")
+    meta(name="author", content="Oumhella Abdellatif")
+    title Portfolio
+    link(rel="icon", type="image/x-icon", href="assets/favicon.ico")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap", rel="stylesheet")
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css", rel="stylesheet")
+    link(href="css/styles.css", rel="stylesheet")
+    style.
+      .profile-img {
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 6px solid #fff;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        background: #f8f9fa;
+      }
+      .about-card {
+        background: #fff;
+        border-radius: 1.5rem;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+        padding: 2.5rem 2rem;
+        margin-top: -120px;
+        position: relative;
+        z-index: 2;
+      }
+      .about-icons a {
+        color: #0d6efd;
+        transition: color 0.2s;
+      }
+      .about-icons a:hover {
+        color: #6610f2;
+      }
+      @media (max-width: 767px) {
+        .about-card {
+          margin-top: -80px;
+          padding: 1.5rem 1rem;
+        }
+        .profile-img {
+          width: 140px;
+          height: 140px;
+        }
+      }
+  body.d-flex.flex-column.h-100.bg-light
+    main.flex-shrink-0
+      // Navigation
+      nav.navbar.navbar-expand-lg.navbar-light.py-3(style="background: #fff; box-shadow: 0 2px 16px rgba(30,48,243,0.07); border-radius: 0 0 1.5rem 1.5rem; transition: background 0.3s;")
+        .container.px-5
+          a.navbar-brand(href="index.html")
+            span.fw-bolder(style="background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;") my portfolio
+          button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation", style="border: none; background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%);")
+            span.navbar-toggler-icon(style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23fff\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255,255,255,0.7)\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');")
+          #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.ms-auto.mb-2.mb-lg-0.small.fw-bolder
+              li.nav-item
+                a(class="nav-link active", href="index.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Home
+              li.nav-item
+                a(class="nav-link", href="resume.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Resume
+              li.nav-item
+                a(class="nav-link", href="projects.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Projects
+              li.nav-item
+                a(class="nav-link", href="contact.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Contact
+      // Hero Section with Profile Image
+      header.py-5.bg-light
+        .container.px-5.pb-5
+          .row.gx-5.align-items-center.justify-content-center
+            .badge.bg-gradient-primary-to-secondary.text-white.mb-3.weight-bold.text-uppercase.text-center.col-3
+              .text-uppercase Design &middot; Development &middot; Creativity
+            .col-12.text-center
+              img.profile-img.mb-4(src="assets/cv_f.png", alt="Oumhella Abdellatif")
+              h1.display-4.fw-bolder.mb-2
+                span.text-gradient.d-inline OUMHELLA ABDELLATIF
+              .fs-4.fw-light.text-muted.mb-2 Computer Science Engineering Student
+              .about-icons.d-flex.justify-content-center.fs-2.gap-4.mb-3
+                a(href="https://www.linkedin.com/in/abdellatif-oumhella-369480222", target="_blank", title="LinkedIn")
+                  i.bi.bi-linkedin
+                a(href="https://github.com/Oumhella", target="_blank", title="GitHub")
+                  i.bi.bi-github
+      // About Me Section
+      section
+        .container.px-5
+          .row.justify-content-center
+            .col-lg-10.col-xl-8
+              .about-card.shadow-sm
+                h2.display-6.fw-bolder.text-center.mb-4
+                  span.text-gradient.d-inline About Me
+                p.lead.fw-light.mb-3.text-center My name is Oumhella Abdellatif, a passionate Computer Science Engineering student at ENSA Tétouan, Morocco.
+                p
+                  | I am deeply interested in
+                  strong DevOps
+                  | and
+                  strong Cloud Computing
+                  | , always seeking to bridge the gap between development and operations through automation and scalable solutions. My academic journey has equipped me with a solid foundation in software engineering, system administration, and modern web technologies.
+                p Throughout my studies and personal projects, I have developed several web applications and tools, including:
+                ul
+                  li
+                    strong Personal Portfolio Website
+                    |  – Designed and built this very site using HTML, CSS, JavaScript, and Bootstrap to showcase my skills and projects.
+                  li
+                    strong DevOps Automation Scripts
+                    |  – Created scripts for CI/CD pipelines, Docker containerization.
+                  li
+                    strong Academic Projects
+                    |  – Participated in team-based software engineering projects, focusing on clean code, agile methods, and collaborative development.
+                p
+                  | I am always eager to learn new technologies and contribute to impactful projects. My goal is to become a skilled DevOps engineer, leveraging cloud platforms and automation to deliver robust, scalable solutions.
+                .text-center.mt-4
+                  a.btn.btn-outline-primary.px-4.py-2(href="projects.html") See My Projects
+                  a.btn.btn-outline-secondary.px-4.py-2.ms-2(href="contact.html") Contact Me
+    // Footer
+    footer.bg-white.py-4.mt-auto
+      .container.px-5
+        .row.align-items-center.justify-content-between.flex-column.flex-sm-row
+          center
+            .col-auto
+              .small.m-0 Copyright &copy; Oumhella 2025
+    // Bootstrap core JS
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js")
+    // Core theme JS
+    script(src="js/scripts.js")
