@@ -9,7 +9,7 @@ html(lang="en")
     link(rel="icon", type="image/x-icon", href="assets/favicon.ico")
     link(rel="preconnect", href="https://fonts.googleapis.com")
     link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
-    link(href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap", rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap", rel="stylesheet")
     link(href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css", rel="stylesheet")
     link(href="css/styles.css", rel="stylesheet")
   body.d-flex.flex-column.h-100.bg-light
@@ -39,8 +39,80 @@ html(lang="en")
               span.text-gradient.d-inline Projects
           .row.gx-5.justify-content-center
             .col-lg-11.col-xl-9.col-xxl-8
-              // ...existing project cards...
-              // (No changes needed here)
+              // Project Card 1
+              .card.overflow-hidden.shadow.rounded-4.border-0.mb-5
+                .card-body.p-0
+                  .d-flex.align-items-center
+                    .p-5
+                      h2.fw-bolder Environnement de développement web avec Docker sous Linux
+                      p - La création d'une image Docker intégrant un environnement complet PHP/Laravel
+                      p - Le partage et l'utilisation collaborative de cette image via Docker Hub.
+                      p - La gestion du code source via GitHub pour un versionnement propre et collaboratif.
+                      p - L'organisation du travail en équipe à l'aide d'outils de gestion de projet (Jira).
+                      p - La mise en place d'un pipeline CI/CD pour automatiser les tests et le déploiement.
+                      p - Développement d'un site e-commerce(PenguinShop) avec HTML, CSS, JavaScript, Laravel, MySQL.
+                      h4 Technos : Docker, Git, GitHub, Jira, CI/CD, Linux, JavaScript, Laravel
+                      a.btn.btn-primary(href="https://github.com/Oumhella/PenguinShop") lien Github
+                    img.custom-size(src="assets/docker1.png", alt="hotel")
+              // Project Card 2
+              .card.overflow-hidden.shadow.rounded-4.border-0.mb-5
+                .card-body.p-0
+                  .d-flex.align-items-center
+                    .p-5
+                      h2.fw-bolder Hotel management system
+                      p Réalisation complète d'un système de gestion hôtelière, comprenant l'analyse fonctionnelle, la conception technique et le développement, avec une implémentation en PHP
+                    img.custom-size(src="assets/image.png", alt="hotel")
+              // Project Card 3
+              .card.overflow-hidden.shadow.rounded-4.border-0.mb-5
+                .card-body.p-0
+                  .d-flex.align-items-center
+                    .p-5
+                      h2.fw-bolder Maintenance management system
+                      h5 En cours de réalisation
+                      p Ce projet vise à développer un système de gestion de maintenance pour une entreprise, permettant de suivre les interventions, les équipements et les techniciens. Il inclut la création d'une base de données relationnelle, la mise en place d'une interface utilisateur intuitive et la gestion des droits d'accès.
+                      h4 Technos : Laravel, MySQL, TAILWIND CSS, JavaScript
+                      a.btn.btn-primary(href="https://github.com/Oumhella/gestionMaintenances") lien Github
+                    img.custom-size(src="assets/interv.png", alt="maintenance")
+              // Project Card 4
+              .card.overflow-hidden.shadow.rounded-4.border-0.mb-5
+                .card-body.p-0
+                  .d-flex.align-items-center
+                    .p-5
+                      h2.fw-bolder Développement d'un jeu de tir spatial 2D en Java
+                      h4 Technologies : Java, JavaFX, Sockets TCP, MySQL, Threads, UML, MVC
+                      p Développement complet d'un jeu vidéo en 2D avec deux modes de jeu (solo et multijoueur) dans le cadre d'un projet pédagogique.
+                      a.btn.btn-primary(href="https://github.com/Oumhella/JAVA_jeudetir_Vfin") lien Github
+                    img.custom-size(src="assets/gameacc.png", alt="game")
+              // Project Card 5
+              .card.overflow-hidden.shadow.rounded-4.border-0.mb-5
+                .card-body.p-0
+                  .d-flex.align-items-center
+                    .p-5
+                      h2.fw-bolder API Java multi-SGBD
+                      p API modulaire pour exécuter des opérations CRUD sur MySQL, PostgreSQL et SQL Server. Connexion dynamique, configuration centralisée, tests avec JUnit.
+                      h4 Technos : Java 17, Maven, JDBC, JUnit
+                      a.btn.btn-primary(href="https://github.com/Oumhella/Java_API") lien Github
+                    img.custom-size(src="assets/apiSGBDF.png", alt="api")
+              // Project Card 6
+              .card.overflow-hidden.shadow.rounded-4.border-0.mb-5
+                .card-body.p-0
+                  .d-flex.align-items-center
+                    .p-5
+                      h2.fw-bolder Site Web : Coupe d'Afrique des Nations - Maroc 2025
+                      p Développement d'un site web interactif dédié à la CAN, intégrant une interface responsive, des animations en JavaScript, et une mise en page soignée.
+                      h4 Technos : HTML, CSS, Bootstrap, JavaScript
+                      a.btn.btn-primary(href="https://coupe-d-afrique.vercel.app") Voir le projet
+                    img.custom-size(src="assets/coupe3.png", alt="coupe")
+              // Project Card 7
+              .card.overflow-hidden.shadow.rounded-4.border-0.mb-5
+                .card-body.p-0
+                  .d-flex.align-items-center
+                    .p-5
+                      h2.fw-bolder Manipulation d'Automates Finis avec langage C
+                      p Ce projet met en œuvre des concepts fondamentaux comme les expressions régulières, les automates déterministes et non déterministes, la minimisation, la déterminisation, et les ε-transitions. Le programme offre une interface en ligne de commande permettant de créer, analyser, optimiser et tester des automates, avec une prise en charge des fichiers .dot pour la visualisation.
+                      a.btn.btn-primary(href="https://github.com/Oumhella/Projet_THL") lien Github
+                    img.custom-size(src="assets/aut2.png", alt="automates")
+      // Call to action section
       section.py-5.bg-gradient-primary-to-secondary.text-white
         .container.px-5.my-5
           .text-center
