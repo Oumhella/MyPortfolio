@@ -11705,8 +11705,8 @@ html {
     right: 0.75vw;
   }
   .custom-size {
-  width: 400px;
-  height: 440px;
+  width: 300px;
+  height: 404px;
   object-fit: cover;
   border-radius: 1rem;
   margin-left: 1rem;
