@@ -11704,6 +11704,13 @@ html {
     width: 1.5vw;
     right: 0.75vw;
   }
+  .custom-size {
+  width: 400px;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-left: 1rem;
+}
   .profile .dots-2 {
     width: 1.5vw;
     right: -2vw;
