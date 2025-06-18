@@ -490,9 +490,9 @@ progress {
   font-size: 1.25rem;
   font-weight: 300;
 }
-.custom-size {
-  width: 180px;
-  height: 180px;
+  .custom-size {
+  width: 300px;
+  height: 404px;
   object-fit: cover;
   border-radius: 1rem;
   margin-left: 1rem;
