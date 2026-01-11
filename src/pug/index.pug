@@ -1,118 +1,195 @@
 doctype html
-html(lang="en")
+html(lang='en')
   head
-    meta(charset="utf-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    meta(name="description", content="Personal portfolio of Oumhella Abdellatif")
-    meta(name="author", content="Oumhella Abdellatif")
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='Personal portfolio of Oumhella Abdellatif')
+    meta(name='author', content='Oumhella Abdellatif')
     title Portfolio
-    link(rel="icon", type="image/x-icon", href="assets/favicon.ico")
-    link(rel="preconnect", href="https://fonts.googleapis.com")
-    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
-    link(href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap", rel="stylesheet")
-    link(href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css", rel="stylesheet")
-    link(href="css/styles.css", rel="stylesheet")
+    link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+    link(rel='preconnect', href='https://fonts.googleapis.com')
+    link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
+    link(href='https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap', rel='stylesheet')
+    link(href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css', rel='stylesheet')
+    link(href='css/styles.css', rel='stylesheet')
     style.
-      .profile-img {
-        width: 220px;
-        height: 220px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 6px solid #fff;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-        background: #f8f9fa;
+      /* Animation Keyframes */
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+        50% { transform: translateY(-20px) rotateX(5deg) rotateY(5deg); }
       }
-      .about-card {
-        background: #fff;
-        border-radius: 1.5rem;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-        padding: 2.5rem 2rem;
-        margin-top: -120px;
-        position: relative;
-        z-index: 2;
+      @keyframes pulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 0.8; }
       }
-      .about-icons a {
-        color: #0d6efd;
-        transition: color 0.2s;
+      @keyframes fadeInLeft {
+        from { opacity: 0; transform: translateX(-50px); }
+        to { opacity: 1; transform: translateX(0); }
       }
-      .about-icons a:hover {
-        color: #6610f2;
+      @keyframes fadeInRight {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
       }
-      @media (max-width: 767px) {
-        .about-card {
-          margin-top: -80px;
-          padding: 1.5rem 1rem;
+      @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes bounce {
+        0%, 100% { transform: translateX(-50%) translateY(0); }
+        50% { transform: translateX(-50%) translateY(-10px); }
+      }
+      @keyframes blink {
+        0%, 50% { opacity: 1; }
+        51%, 100% { opacity: 0; }
+      }
+      
+      /* Hover Effects */
+      .image-wrapper:hover img {
+        transform: scale(1.02);
+      }
+      .image-wrapper:hover .upload-overlay {
+        opacity: 1;
+      }
+      .social-icon:hover {
+        background: rgba(255, 255, 255, 0.3) !important;
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 991px) {
+        .hero-section {
+          min-height: auto !important;
         }
-        .profile-img {
-          width: 140px;
-          height: 140px;
+        .image-wrapper {
+          max-width: 400px;
+          margin: 0 auto;
         }
       }
   body.d-flex.flex-column.h-100.bg-light
     main.flex-shrink-0
       // Navigation
-      nav.navbar.navbar-expand-lg.navbar-light.py-3(style="background: #fff; box-shadow: 0 2px 16px rgba(30,48,243,0.07); border-radius: 0 0 1.5rem 1.5rem; transition: background 0.3s;")
+      nav.navbar.navbar-expand-lg.navbar-light.py-3(style='background: #fff; box-shadow: 0 2px 16px rgba(30,48,243,0.07); border-radius: 0 0 1.5rem 1.5rem; transition: background 0.3s;')
         .container.px-5
-          a.navbar-brand(href="index.html")
-            span.fw-bolder(style="background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;") my portfolio
-          button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation", style="border: none; background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%);")
-            span.navbar-toggler-icon(style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23fff\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255,255,255,0.7)\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');")
+          a.navbar-brand(href='index.html')
+            span.fw-bolder(style='background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;') my portfolio
+          button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation', style='border: none; background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%);')
+            span.navbar-toggler-icon(style="background-image: url('data:image/svg+xml,%3csvg xmlns=\\'http://www.w3.org/2000/svg\\' fill=\\'%23fff\\' viewBox=\\'0 0 30 30\\'%3e%3cpath stroke=\\'rgba(255,255,255,0.7)\\' stroke-width=\\'2\\' d=\\'M4 7h22M4 15h22M4 23h22\\'/%3e%3c/svg%3e');")
           #navbarSupportedContent.collapse.navbar-collapse
             ul.navbar-nav.ms-auto.mb-2.mb-lg-0.small.fw-bolder
               li.nav-item
-                a(class="nav-link active", href="index.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Home
+                a.nav-link.active(href='index.html', style='color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;') Home
               li.nav-item
-                a(class="nav-link", href="resume.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Resume
+                a.nav-link(href='resume.html', style='color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;') Resume
               li.nav-item
-                a(class="nav-link", href="projects.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Projects
+                a.nav-link(href='projects.html', style='color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;') Projects
               li.nav-item
-                a(class="nav-link", href="contact.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Contact
-      // Hero Section with Profile Image
-      header.py-5.bg-light
-        .container.px-5.pb-5
-          .row.gx-5.align-items-center.justify-content-center
-            .col-12.text-center.mb-3
-              .badge.bg-gradient-primary-to-secondary.text-white.weight-bold.text-uppercase
-                .text-uppercase Design &middot; Development &middot; Creativity
-            .col-12.text-center
-              img.profile-img.mb-4(src="assets/cv_f.png", alt="Oumhella Abdellatif")
-              h1.display-4.fw-bolder.mb-2
-                span.text-gradient.d-inline OUMHELLA ABDELLATIF
-              .fs-4.fw-light.text-muted.mb-2 Computer Science Engineering Student
-              .about-icons.d-flex.justify-content-center.fs-2.gap-4.mb-3
-                a(href="https://www.linkedin.com/in/abdellatif-oumhella-369480222", target="_blank", title="LinkedIn")
-                  i.bi.bi-linkedin
-                a(href="https://github.com/Oumhella", target="_blank", title="GitHub")
-                  i.bi.bi-github
-      // About Me Section
-      section
+                a.nav-link(href='contact.html', style='color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;') Contact
+      
+      // Hero Section with Split Screen Design
+      header.hero-section.py-5(style='background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); min-height: 100vh; position: relative; overflow: hidden;')
+        // Animated background particles
+        .particles-bg(style='position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; pointer-events: none;')
+        .container.px-5.h-100
+          .row.gx-5.align-items-center.justify-content-center.h-100.py-5
+            // Large Image Area - Left Side
+            .col-lg-6.col-xl-6.mb-5.mb-lg-0(style='animation: fadeInLeft 1s ease-out;')
+              .image-container.position-relative(style='perspective: 1000px;')
+                .image-wrapper(style='background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border-radius: 2rem; padding: 1.5rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.2); animation: float 6s ease-in-out infinite; transform-style: preserve-3d;')
+                  .image-glow(style='position: absolute; inset: -20px; background: linear-gradient(135deg, #667eea, #764ba2, #f093fb); border-radius: 2rem; filter: blur(40px); opacity: 0.6; z-index: -1; animation: pulse 4s ease-in-out infinite;')
+                  img.profile-img-large(src='assets/cvPH.png', alt='Oumhella Abdellatif', style='width: 100%; height: auto; max-width: 500px; border-radius: 1.5rem; display: block; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease;')
+                  // Upload indicator overlay
+                  .upload-overlay(style='position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 0.75rem 1.5rem; border-radius: 2rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); display: flex; align-items: center; gap: 0.5rem; opacity: 0; transition: opacity 0.3s ease;')
+                    i.bi.bi-cloud-upload(style='font-size: 1.2rem; color: #667eea;')
+                    span(style='font-size: 0.9rem; font-weight: 600; color: #333;') Replace Image
+            
+            // Profile Info - Right Side
+            .col-lg-6.col-xl-6.text-center.text-lg-start(style='animation: fadeInRight 1s ease-out;')
+              .profile-content
+                // Badge
+                .badge.mb-4(style='background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); color: white; padding: 0.75rem 1.5rem; border-radius: 2rem; font-size: 0.9rem; font-weight: 600; letter-spacing: 1px; border: 1px solid rgba(255, 255, 255, 0.3); display: inline-block; animation: slideDown 1s ease-out 0.3s both;')
+                  i.bi.bi-stars.me-2
+                  span DESIGN · DEVELOPMENT · CREATIVITY
+                
+                // Name with gradient text
+                h1.display-3.fw-bolder.mb-3(style='animation: slideDown 1s ease-out 0.5s both;')
+                  span.gradient-text(style='background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);') OUMHELLA ABDELLATIF
+                
+                // Animated role with typing effect
+                .role-container.mb-4(style='animation: slideDown 1s ease-out 0.7s both;')
+                  h2.fs-3.fw-light.mb-0(style='color: rgba(255, 255, 255, 0.95); font-weight: 400;')
+                    span.typing-text Computer Science Engineering Student
+                    span.cursor(style='display: inline-block; width: 3px; height: 1.2em; background: white; margin-left: 4px; animation: blink 1s step-end infinite; vertical-align: middle;')
+                
+                // Social Icons with hover effects
+                .social-icons.d-flex.justify-content-center.justify-content-lg-start.gap-3.mb-4(style='animation: slideDown 1s ease-out 0.9s both;')
+                  a.social-icon(href='https://www.linkedin.com/in/abdellatif-oumhella-369480222', target='_blank', title='LinkedIn', style='width: 50px; height: 50px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2); text-decoration: none;')
+                    i.bi.bi-linkedin
+                  a.social-icon(href='https://github.com/Oumhella', target='_blank', title='GitHub', style='width: 50px; height: 50px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.2); text-decoration: none;')
+                    i.bi.bi-github
+                
+                // CTA Buttons
+                .cta-buttons.d-flex.flex-column.flex-sm-row.gap-3.justify-content-center.justify-content-lg-start(style='animation: slideDown 1s ease-out 1.1s both;')
+                  a.btn.btn-light.btn-lg.px-4.py-3(href='projects.html', style='border-radius: 2rem; font-weight: 600; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease; border: none; background: white; color: #667eea;')
+                    i.bi.bi-grid-3x3-gap.me-2
+                    span See My Projects
+                  a.btn.btn-outline-light.btn-lg.px-4.py-3(href='contact.html', style='border-radius: 2rem; font-weight: 600; transition: all 0.3s ease; border: 2px solid rgba(255, 255, 255, 0.5); background: transparent; color: white;')
+                    i.bi.bi-envelope.me-2
+                    span Contact Me
+        
+        // Scroll indicator
+        .scroll-indicator(style='position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite;')
+          i.bi.bi-chevron-down(style='font-size: 2rem; color: rgba(255, 255, 255, 0.7);')
+      
+      // About Me Section with modern cards
+      section.py-5(style='background: #f8f9fa;')
         .container.px-5
           .row.justify-content-center
-            .col-lg-10.col-xl-8
-              .about-card.shadow-sm
-                h2.display-6.fw-bolder.text-center.mb-4
-                  span.text-gradient.d-inline About Me
-                p.lead.fw-light.mb-3.text-center My name is Oumhella Abdellatif, a passionate Computer Science Engineering student at ENSA Tétouan, Morocco.
-                p
-                  | I am deeply interested in
-                  strong DevOps
-                  | , always seeking to bridge the gap between development and operations through automation and scalable solutions. My academic journey has equipped me with a solid foundation in software engineering, system administration, and modern web technologies.
-                p Throughout my studies and personal projects, I have developed several web applications and tools, including:
-                ul
-                  li
-                    strong Personal Portfolio Website
-                    |  – Designed and built this very site using HTML, CSS, JavaScript, and Bootstrap to showcase my skills and projects.
-                  li
-                    strong DevOps Automation Scripts
-                    |  – Created scripts for CI/CD pipelines, Docker containerization.
-                  li
-                    strong Academic Projects
-                    |  – Participated in team-based software engineering projects, focusing on clean code, agile methods, and collaborative development.
-                p
-                  | I am always eager to learn new technologies and contribute to impactful projects. My goal is to become a skilled DevOps engineer, leveraging cloud platforms and automation to deliver robust, scalable solutions.
-                .text-center.mt-4
-                  a.btn.btn-outline-primary.px-4.py-2(href="projects.html") See My Projects
-                  a.btn.btn-outline-secondary.px-4.py-2.ms-2(href="contact.html") Contact Me
+            .col-lg-10.col-xl-9
+              .about-card.shadow-sm(style='background: white; border-radius: 2rem; padding: 3rem 2.5rem; margin-top: -80px; position: relative; z-index: 10; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important; border: 1px solid rgba(0, 0, 0, 0.05);')
+                h2.display-6.fw-bolder.text-center.mb-4(style='animation: fadeInUp 1s ease-out;')
+                  span.gradient-text(style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;') About Me
+                
+                .content(style='animation: fadeInUp 1s ease-out 0.2s both;')
+                  p.lead.fw-light.mb-4.text-center(style='color: #555; font-size: 1.1rem;') My name is Oumhella Abdellatif, a passionate Computer Science Engineering student at ENSA Tétouan, Morocco.
+                  
+                  p.mb-3(style='color: #666; line-height: 1.8;')
+                    | I am deeply interested in 
+                    strong(style='color: #667eea;') DevOps
+                    | , always seeking to bridge the gap between development and operations through automation and scalable solutions. My academic journey has equipped me with a solid foundation in software engineering, system administration, and modern web technologies.
+                  
+                  p.mb-3(style='color: #666; line-height: 1.8;') Throughout my studies and personal projects, I have developed several web applications and tools, including:
+                  
+                  ul.mb-4(style='color: #666; line-height: 1.8;')
+                    li.mb-2
+                      strong(style='color: #667eea;') Personal Portfolio Website
+                      |  – Designed and built this very site using HTML, CSS, JavaScript, and Bootstrap to showcase my skills and projects.
+                    li.mb-2
+                      strong(style='color: #667eea;') DevOps Automation Scripts
+                      |  – Created scripts for CI/CD pipelines, Docker containerization.
+                    li.mb-2
+                      strong(style='color: #667eea;') Academic Projects
+                      |  – Participated in team-based software engineering projects, focusing on clean code, agile methods, and collaborative development.
+                  
+                  p.mb-4(style='color: #666; line-height: 1.8;')
+                    | I am always eager to learn new technologies and contribute to impactful projects. My goal is to become a skilled DevOps engineer, leveraging cloud platforms and automation to deliver robust, scalable solutions.
+                  
+                  .text-center.mt-4
+                    a.btn.btn-primary.btn-lg.px-4.py-3.me-3(href='projects.html', style='border-radius: 2rem; font-weight: 600; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4); transition: all 0.3s ease;')
+                      i.bi.bi-grid-3x3-gap.me-2
+                      span See My Projects
+                    a.btn.btn-outline-primary.btn-lg.px-4.py-3(href='contact.html', style='border-radius: 2rem; font-weight: 600; border: 2px solid #667eea; color: #667eea; transition: all 0.3s ease;')
+                      i.bi.bi-envelope.me-2
+                      span Contact Me
+    
     // Footer
     footer.bg-white.py-4.mt-auto
       .container.px-5
@@ -120,7 +197,8 @@ html(lang="en")
           center
             .col-auto
               .small.m-0 &copy; 2013-2023 Start Bootstrap LLC. Licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
+    
     // Bootstrap core JS
-    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js")
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js')
     // Core theme JS
-    script(src="js/scripts.js")
+    script(src='js/scripts.js')

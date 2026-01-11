@@ -11,26 +11,18 @@
 // Import Custom Component Styles
 @import "components/feature";
 @import "components/profile";
-// Responsive fix for project cards images and layout
-.card .d-flex.align-items-center {
-  @media (max-width: 991.98px) {
-    flex-direction: column !important;
-    text-align: center;
-  }
+
+// Global smooth scrolling
+html {
+  scroll-behavior: smooth;
 }
 
-.card .custom-size {
-  width: 400px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 1rem;
-  margin-left: 1rem;
-  @media (max-width: 991.98px) {
-    margin-left: 0 !important;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    width: 70vw;
-    max-width: 260px;
-    height: auto;
-  }
+// Smooth transitions for all interactive elements
+a, button, .btn {
+  transition: all 0.3s ease;
+}
+
+// Ensure images load smoothly
+img {
+  transition: transform 0.4s ease, opacity 0.3s ease;
 }

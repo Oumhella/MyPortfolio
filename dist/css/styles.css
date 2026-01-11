@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
 * Start Bootstrap - Personal v1.0.1 (https://startbootstrap.com/template-overviews/personal)
-* Copyright 2013-2025 Start Bootstrap
+* Copyright 2013-2026 Start Bootstrap
 * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-personal/blob/master/LICENSE)
 */
 /*!
@@ -11758,28 +11758,14 @@ html {
     left: -2vw;
   }
 }
-@media (max-width: 991.98px) {
-  .card .d-flex.align-items-center {
-    flex-direction: column !important;
-    text-align: center;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
-.card .custom-size {
-  width: 400px;
-  height: 400px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 1rem;
-  margin-left: 1rem;
+a, button, .btn {
+  transition: all 0.3s ease;
 }
-@media (max-width: 991.98px) {
-  .card .custom-size {
-    margin-left: 0 !important;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    width: 70vw;
-    max-width: 260px;
-    height: auto;
-  }
+
+img {
+  transition: transform 0.4s ease, opacity 0.3s ease;
 }
