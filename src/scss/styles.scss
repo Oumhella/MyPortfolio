@@ -18,11 +18,212 @@ html {
 }
 
 // Smooth transitions for all interactive elements
-a, button, .btn {
+a,
+button,
+.btn {
   transition: all 0.3s ease;
 }
 
 // Ensure images load smoothly
 img {
   transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+// Dark Mode Variables & Styles
+:root {
+  --bg-color: #f8f9fa;
+  --text-main: #212529;
+  --text-muted: #6c757d;
+  --card-bg: #ffffff;
+  --nav-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-main: #e0e0e0;         // Softer white for less eye strain
+  --text-muted: #a0a0a0;         // Lighter gray for readability
+  --card-bg: #1e1e1e;
+  --nav-bg: #1a1a1a;
+  --section-bg: #121212;
+  
+  // Custom Gradient for Dark Mode (Lighter/Brighter to pop on dark bg)
+  --gradient-dark: linear-gradient(135deg, #a5b4fc 0%, #f0abfc 100%);
+
+  // Force body background and color
+  &, body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-main) !important;
+  }
+  
+  // Override Bootstrap and Inline Styles
+  .bg-light, 
+  section[style*="background: #f8f9fa"], 
+  section[style*="background: #fff"],
+  .bg-white {
+    background-color: var(--bg-color) !important;
+  }
+  
+  // Fix gradients or specific colored sections
+  section[style*="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)"] {
+     background: linear-gradient(135deg, #1f1f1f 0%, #2d2d2d 100%) !important;
+  }
+
+  .text-secondary, .text-muted, .lead {
+    color: var(--text-muted) !important;
+  }
+  
+  // Standard headings - default to main text color
+  .text-dark, h1, h2, h3, h4, h5, h6 {
+      color: var(--text-main) !important;
+  }
+
+  // Preserve and Brighten Gradient Text
+  // We override the inline style background with a brighter gradient for dark mode
+  .gradient-text, span[style*="-webkit-background-clip: text"] {
+      background: var(--gradient-dark) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      color: transparent !important; 
+  }
+  
+  // Navbar overrides
+  .navbar-light {
+      background: var(--nav-bg) !important;
+      
+      .navbar-brand {
+          // Keep the brand gradient or make it consistent
+           span {
+             background: var(--gradient-dark) !important;
+             -webkit-background-clip: text !important;
+             background-clip: text !important;
+             -webkit-text-fill-color: transparent !important;
+           }
+      }
+      
+      .nav-link, .btn-link {
+          color: var(--text-main) !important;
+          &:hover {
+              color: #f0abfc !important; // Light pink hover
+          }
+          &.active {
+              color: #a5b4fc !important; // Light blue active
+          }
+      }
+      .navbar-toggler {
+          background-color: rgba(255,255,255,0.1);
+          border-color: rgba(255,255,255,0.1);
+          .navbar-toggler-icon {
+              filter: invert(1) grayscale(100%) brightness(200%);
+          }
+      }
+  }
+
+  // Cards with inline styles
+  .card, .about-card, .project-card, .feature {
+    background-color: var(--card-bg) !important;
+    border-color: #333 !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
+    
+    .card-body, h3, p, div {
+        color: var(--text-main);
+    }
+  }
+  
+  // Form inputs
+  .form-control {
+      background-color: #2d2d2d;
+      border-color: #444;
+      color: var(--text-main);
+      
+      &:focus {
+          background-color: #333;
+          color: var(--text-main);
+          border-color: #a5b4fc;
+          box-shadow: 0 0 0 0.25rem rgba(165, 180, 252, 0.25);
+      }
+      &::placeholder {
+          color: #6c757d;
+      }
+  }
+  
+  // Modal/Overlay fixes
+  .badge {
+      &.bg-light {
+        background-color: #2d2d2d !important;
+        color: #fff !important;
+      }
+      // Ensure colorful badges are visible or slightly muted/brightened if needed
+      // but usually the default white text on colored badge is fine.
+  }
+  
+  // Buttons
+  .btn-light {
+      background-color: #2d2d2d;
+      border-color: #444;
+      color: var(--text-main);
+      &:hover {
+          background-color: #333;
+          border-color: #555;
+          color: #fff;
+      }
+  }
+  
+  .btn-outline-dark {
+      color: var(--text-main);
+      border-color: var(--text-main);
+      &:hover {
+          background-color: var(--text-main);
+          color: var(--bg-color);
+      }
+  }
+  
+  // Specific fix for "About Me" card which has inline style
+  div[style*="background: white"] {
+      background-color: var(--card-bg) !important;
+  }
+}
+
+// Theme Toggle Button
+.theme-toggle {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background 0.3s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  [data-theme="dark"] & {
+    color: #fff;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
+
+// Scroll to Top Button
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  background-color: #667eea;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: opacity 0.3s, transform 0.3s;
+
+  &:hover {
+    background-color: #764ba2;
+    transform: translateY(-3px);
+  }
 }

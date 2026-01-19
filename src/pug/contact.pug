@@ -14,7 +14,7 @@ html(lang="en")
       nav.navbar.navbar-expand-lg.navbar-light.py-3(style="background: #fff; box-shadow: 0 2px 16px rgba(30,48,243,0.07); border-radius: 0 0 1.5rem 1.5rem; transition: background 0.3s;")
         .container.px-5
           a.navbar-brand(href="index.html")
-            span.fw-bolder(style="background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;") my portfolio
+            span.fw-bolder(style="background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;") Mon Portfolio
           button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation", style="border: none; background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%);")
             span.navbar-toggler-icon(style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23fff\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255,255,255,0.7)\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');")
           #navbarSupportedContent.collapse.navbar-collapse
@@ -27,6 +27,9 @@ html(lang="en")
                 a(class="nav-link", href="projects.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Projets
               li.nav-item
                 a(class="nav-link active", href="contact.html", style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem;") Contact
+              li.nav-item.ms-lg-3
+                 button#theme-toggle.btn.btn-link.nav-link.theme-toggle(type="button", aria-label="Toggle theme", style="color: #232946;")
+                   i.bi.bi-moon-fill
       section.py-5
         .container.px-5
           .bg-light.rounded-4.py-5.px-4.px-md-5
