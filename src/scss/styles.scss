@@ -29,25 +29,72 @@ img {
   transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
+.navbar-light {
+  background: var(--nav-bg) !important;
+  box-shadow: 0 10px 30px rgba(5, 9, 20, 0.16) !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+
+  .navbar-brand span {
+    background: var(--nav-brand-gradient) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    filter: drop-shadow(0 1px 10px rgba(56, 189, 248, 0.22));
+  }
+
+  .nav-link,
+  .btn-link {
+    color: #dbeafe !important;
+
+    &:hover,
+    &.active {
+      color: var(--brand-secondary) !important;
+    }
+  }
+
+  .navbar-toggler {
+    border: 0 !important;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.92)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    filter: none !important;
+  }
+}
+
 // Dark Mode Variables & Styles
 :root {
-  --bg-color: #f8f9fa;
-  --text-main: #212529;
-  --text-muted: #6c757d;
+  --bg-color: #eef2f7;
+  --surface-soft: #e5ecf5;
+  --text-main: #111827;
+  --text-muted: #526174;
   --card-bg: #ffffff;
-  --nav-bg: #ffffff;
+  --nav-bg: #0b1220;
+  --brand-primary: #111827;
+  --brand-secondary: #38bdf8;
+  --brand-accent: #c084fc;
+  --brand-gradient: linear-gradient(135deg, #111827 0%, #1e3a8a 58%, #38bdf8 100%);
+  --nav-brand-gradient: linear-gradient(90deg, #f8fafc 0%, #7dd3fc 58%, #c084fc 100%);
+  --brand-gradient-soft: linear-gradient(135deg, #f8fafc 0%, #e5ecf5 52%, #dbeafe 100%);
 }
 
 [data-theme="dark"] {
-  --bg-color: #121212;
-  --text-main: #e0e0e0; // Softer white for less eye strain
-  --text-muted: #a0a0a0; // Lighter gray for readability
-  --card-bg: #1e1e1e;
-  --nav-bg: #1a1a1a;
-  --section-bg: #121212;
+  --bg-color: #050914;
+  --surface-soft: #101827;
+  --text-main: #e5edf7;
+  --text-muted: #9ba9bc;
+  --card-bg: #0d1625;
+  --nav-bg: #050914;
+  --section-bg: #050914;
+  --brand-primary: #e5edf7;
+  --brand-secondary: #38bdf8;
+  --brand-accent: #c084fc;
+  --brand-gradient: linear-gradient(135deg, #e5edf7 0%, #38bdf8 55%, #c084fc 100%);
+  --nav-brand-gradient: linear-gradient(90deg, #f8fafc 0%, #7dd3fc 58%, #c084fc 100%);
+  --brand-gradient-soft: linear-gradient(135deg, #050914 0%, #0d1625 52%, #111c33 100%);
 
-  // Custom Gradient for Dark Mode (Lighter/Brighter to pop on dark bg)
-  --gradient-dark: linear-gradient(135deg, #a5b4fc 0%, #f0abfc 100%);
+  --gradient-dark: var(--brand-gradient);
 
   // Force body background and color
   &,
@@ -60,13 +107,15 @@ img {
   .bg-light,
   section[style*="background: #f8f9fa"],
   section[style*="background: #fff"],
+  section[style*="#f5f7fa"],
+  section[style*="#dbe6f3"],
   .bg-white {
     background-color: var(--bg-color) !important;
   }
 
   // Fix gradients or specific colored sections
-  section[style*="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)"] {
-    background: linear-gradient(135deg, #1f1f1f 0%, #2d2d2d 100%) !important;
+  section[style*="background: linear-gradient"] {
+    background: var(--brand-gradient-soft) !important;
   }
 
   .text-secondary,
@@ -105,7 +154,7 @@ img {
 
       // Keep the brand gradient or make it consistent
       span {
-        background: var(--gradient-dark) !important;
+        background: var(--nav-brand-gradient) !important;
         -webkit-background-clip: text !important;
         background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
@@ -117,11 +166,11 @@ img {
       color: var(--text-main) !important;
 
       &:hover {
-        color: #f0abfc !important; // Light pink hover
+        color: var(--brand-accent) !important;
       }
 
       &.active {
-        color: #a5b4fc !important; // Light blue active
+        color: var(--brand-primary) !important;
       }
     }
 
@@ -141,28 +190,72 @@ img {
   .project-card,
   .feature {
     background-color: var(--card-bg) !important;
-    border-color: #333 !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+    border-color: rgba(148, 163, 184, 0.22) !important;
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32) !important;
 
     .card-body,
     h3,
+    h2,
     p,
+    span,
+    strong,
+    li,
     div {
-      color: var(--text-main);
+      color: var(--text-main) !important;
     }
+  }
+
+  .card .bg-light,
+  .rounded-4.bg-light,
+  div[class*="bg-light"] {
+    background-color: var(--surface-soft) !important;
+    color: var(--text-main) !important;
+  }
+
+  .project-filter-nav {
+    background: rgba(5, 9, 20, 0.92) !important;
+    border-color: rgba(56, 189, 248, 0.24) !important;
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.35) !important;
+  }
+
+  .project-filter-btn {
+    background: #101827 !important;
+    color: var(--text-main) !important;
+    border-color: rgba(148, 163, 184, 0.28) !important;
+
+    &.is-active {
+      background: var(--brand-gradient) !important;
+      color: #041014 !important;
+      border-color: transparent !important;
+    }
+  }
+
+  .project-category-link,
+  a {
+    color: var(--brand-primary) !important;
+  }
+
+  .project-media--logo {
+    background: var(--project-media-dark-bg, var(--project-media-bg, #f8fafc)) !important;
+  }
+
+  .tech-badges .badge {
+    background: #151f31 !important;
+    color: #e5edf7 !important;
+    border-color: rgba(148, 163, 184, 0.24) !important;
   }
 
   // Form inputs
   .form-control {
-    background-color: #2d2d2d;
-    border-color: #444;
+    background-color: #101827;
+    border-color: rgba(148, 163, 184, 0.28);
     color: var(--text-main);
 
     &:focus {
-      background-color: #333;
+      background-color: #111c33;
       color: var(--text-main);
-      border-color: #a5b4fc;
-      box-shadow: 0 0 0 0.25rem rgba(165, 180, 252, 0.25);
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 0.25rem rgba(56, 189, 248, 0.2);
     }
 
     &::placeholder {
@@ -183,8 +276,8 @@ img {
 
   // Buttons
   .btn-light {
-    background-color: #2d2d2d;
-    border-color: #444;
+    background-color: #101827;
+    border-color: rgba(148, 163, 184, 0.28);
     color: var(--text-main);
 
     &:hover {
@@ -207,6 +300,13 @@ img {
   // Specific fix for "About Me" card which has inline style
   div[style*="background: white"] {
     background-color: var(--card-bg) !important;
+  }
+
+  p[style*="color"],
+  h2[style*="color"],
+  h3[style*="color"],
+  .small[style*="color"] {
+    color: var(--text-main) !important;
   }
 }
 
@@ -240,7 +340,7 @@ img {
   font-size: 1.5rem;
   border: none;
   outline: none;
-  background-color: #667eea;
+  background-color: #111827;
   color: white;
   cursor: pointer;
   padding: 10px 15px;
@@ -249,7 +349,7 @@ img {
   transition: opacity 0.3s, transform 0.3s;
 
   &:hover {
-    background-color: #764ba2;
+    background-color: #1e3a8a;
     transform: translateY(-3px);
   }
 

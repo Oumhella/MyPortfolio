@@ -40,29 +40,152 @@
                 transform: translateY(-8px);
                 box-shadow: 0 20px 55px rgba(45, 55, 72, 0.16) !important;
             }
+            .project-grid {
+                align-items: flex-start;
+            }
+            .project-card {
+                height: auto;
+            }
+            .project-content {
+                padding: clamp(1.25rem, 3vw, 2rem);
+            }
             .project-card:hover .overlay {
                 opacity: 1;
             }
+            .project-card:hover .project-media img {
+                transform: scale(1.035);
+            }
             .project-filter-nav a:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 8px 18px rgba(102, 126, 234, 0.16);
+                box-shadow: 0 8px 18px rgba(30, 58, 138, 0.16);
+            }
+            .project-filter-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.55rem;
+                overflow: visible;
+            }
+            .project-filter-btn {
+                flex: 0 0 auto;
+                background: #ffffff;
+                color: #2d3748;
+                border: 1px solid rgba(45, 55, 72, 0.14);
+                border-radius: 999px;
+                padding: 0.55rem 1rem;
+                font-weight: 700;
+                transition: all 0.2s ease;
+                white-space: nowrap;
+            }
+            .project-filter-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 18px rgba(30, 58, 138, 0.16);
+            }
+            .project-filter-btn.is-active {
+                background: linear-gradient(135deg, #111827 0%, #1e3a8a 58%, #38bdf8 100%);
+                color: #ffffff;
+                border-color: transparent;
+            }
+            .project-card-shell.is-hidden {
+                display: none;
+            }
+            .project-category-link {
+                appearance: none;
+                background: none;
+                border: 0;
+                color: #1e3a8a;
+                font: inherit;
+                font-weight: 700;
+                padding: 0;
             }
             .project-image-placeholder {
-                min-height: 245px;
-                background: linear-gradient(135deg, #eef2ff 0%, #f8fbff 48%, #e6fffa 100%);
+                background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 50%, #f0fdfa 100%);
                 display: flex;
                 align-items: center;
                 justify-content: center;
+            }
+            .project-media {
+                position: relative;
+                aspect-ratio: 16 / 9;
+                min-height: 0;
+                overflow: hidden;
+            }
+            .project-media img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.4s ease;
+            }
+            .project-media--logo {
+                background: var(--project-media-bg, linear-gradient(135deg, #ffffff 0%, #f7fafc 100%));
+            }
+            .project-media--logo img {
+                object-fit: contain;
+                padding: clamp(0.65rem, 2.4vw, 1.4rem);
+                filter: drop-shadow(0 12px 20px rgba(15, 23, 42, 0.16));
+            }
+            .project-media--logo.project-media--white-logo img {
+                filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.2));
+            }
+            .project-media--screenshot img {
+                object-fit: cover;
+                padding: 0;
+                background: #f8fafc;
+            }
+            .project-action {
+                width: fit-content;
+                max-width: 100%;
+            }
+            .tech-badges .badge {
+                white-space: normal;
+                text-align: left;
+            }
+            @media (max-width: 991.98px) {
+                .project-filter-nav {
+                    position: static !important;
+                }
+                .project-card:hover {
+                    transform: none;
+                }
+            }
+            @media (max-width: 575.98px) {
+                section.py-5 {
+                    padding-top: 2rem !important;
+                    padding-bottom: 2rem !important;
+                }
+                .project-filter-nav {
+                    border-radius: 0.85rem !important;
+                    padding: 0.65rem !important;
+                }
+                .project-filter-btn {
+                    flex: 1 1 calc(50% - 0.55rem);
+                    min-width: 0;
+                    padding-inline: 0.7rem !important;
+                    white-space: normal;
+                }
+                .project-content {
+                    padding: 1.1rem;
+                }
+                .project-media {
+                    aspect-ratio: 4 / 3;
+                }
+                .project-media--logo img {
+                    padding: 0.8rem;
+                }
+                .project-action {
+                    width: 100%;
+                    text-align: center;
+                }
             }
         </style>
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
             <!-- Navigation-->
-            <nav class="navbar navbar-expand-lg navbar-light py-3" style="background: #fff; box-shadow: 0 2px 16px rgba(30, 48, 243, 0.07); border-radius: 0 0 1.5rem 1.5rem; transition: background 0.3s">
+            <nav class="navbar navbar-expand-lg navbar-light py-3" style="background: #0b1220; box-shadow: 0 10px 30px rgba(5, 9, 20, 0.16); border-radius: 0; transition: background 0.3s">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="index.html"><span class="fw-bolder" style="background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text">Mon Portfolio</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border: none; background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%)"><span class="navbar-toggler-icon" style="background-image: url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='003030'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' d='M47h22M415h22M423h22'/%3e%3c/svg%3e')"></span></button>
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder" style="background: linear-gradient(90deg, #f8fafc 0%, #38bdf8 70%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text">OUMHELLA ABDELLATIF</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border: none; background: linear-gradient(90deg, #1e3a8a 0%, #38bdf8 100%)"><span class="navbar-toggler-icon" style="background-image: url('data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='003030'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-width='2' d='M47h22M415h22M423h22'/%3e%3c/svg%3e')"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                             <li class="nav-item"><a class="nav-link" href="index.html" style="color: #232946; font-weight: 600; margin: 0 0.5rem; border-radius: 0.5rem; transition: background 0.2s, color 0.2s; padding: 0.5rem 1rem">Accueil</a></li>
@@ -80,56 +203,57 @@
             <section class="py-5" style="background: linear-gradient(135deg, #f5f7fa 0%, #dbe6f3 100%); min-height: 100vh">
                 <div class="container px-4 px-lg-5 mb-5">
                     <div class="text-center mb-4" style="animation: fadeInDown 0.8s ease-out">
-                        <h1 class="display-4 fw-bolder mb-3"><span class="gradient-text" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text">Mes Projets</span></h1>
+                        <h1 class="display-4 fw-bolder mb-3"><span class="gradient-text" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 58%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text">Mes Projets</span></h1>
                         <p class="lead" style="color: #4a5568; max-width: 760px; margin: 0 auto">Une sélection de projets académiques et techniques en IA, systèmes intelligents, sécurité, web, microservices et mobile.</p>
                     </div>
-                    <div class="project-filter-nav mb-5" style="position: sticky; top: 0.75rem; z-index: 5; background: rgba(255, 255, 255, 0.86); backdrop-filter: blur(16px); border: 1px solid rgba(102, 126, 234, 0.18); border-radius: 1rem; padding: 0.85rem; box-shadow: 0 10px 30px rgba(45, 55, 72, 0.08)">
-                        <div class="d-flex flex-wrap justify-content-center gap-2">
-                            <a class="btn btn-sm" href="#all-projects" style="background: #2d3748; color: white; border-radius: 999px; padding: 0.55rem 1rem; font-weight: 700; transition: all 0.2s ease">
+                    <div class="project-filter-nav mb-4" style="position: sticky; top: 0.75rem; z-index: 5; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(16px); border: 1px solid rgba(30, 58, 138, 0.16); border-radius: 1rem; padding: 0.85rem; box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08)">
+                        <div class="project-filter-list" role="list" aria-label="Filtrer les projets">
+                            <button class="btn btn-sm project-filter-btn is-active" type="button" data-filter="all" aria-pressed="true">
                                 <i class="bi bi-grid me-1"></i>
                                 <span>Tous</span>
-                            </a>
-                            <a class="btn btn-sm" href="#ml-ai" style="background: white; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.14); border-radius: 999px; padding: 0.55rem 1rem; font-weight: 700; transition: all 0.2s ease">
+                            </button>
+                            <button class="btn btn-sm project-filter-btn" type="button" data-filter="ml-ai" aria-pressed="false">
                                 <i class="bi me-1 bi-cpu"></i>
                                 <span>ML &amp; systèmes intelligents</span>
-                            </a>
-                            <a class="btn btn-sm" href="#web-jee" style="background: white; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.14); border-radius: 999px; padding: 0.55rem 1rem; font-weight: 700; transition: all 0.2s ease">
+                            </button>
+                            <button class="btn btn-sm project-filter-btn" type="button" data-filter="web-jee" aria-pressed="false">
                                 <i class="bi me-1 bi-window-stack"></i>
                                 <span>Développement web / JEE</span>
-                            </a>
-                            <a class="btn btn-sm" href="#devops-cloud" style="background: white; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.14); border-radius: 999px; padding: 0.55rem 1rem; font-weight: 700; transition: all 0.2s ease">
+                            </button>
+                            <button class="btn btn-sm project-filter-btn" type="button" data-filter="devops-cloud" aria-pressed="false">
                                 <i class="bi me-1 bi-cloud-arrow-up"></i>
                                 <span>DevOps &amp; Cloud</span>
-                            </a>
-                            <a class="btn btn-sm" href="#microservices" style="background: white; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.14); border-radius: 999px; padding: 0.55rem 1rem; font-weight: 700; transition: all 0.2s ease">
+                            </button>
+                            <button class="btn btn-sm project-filter-btn" type="button" data-filter="microservices" aria-pressed="false">
                                 <i class="bi me-1 bi-diagram-3"></i>
                                 <span>Microservices</span>
-                            </a>
-                            <a class="btn btn-sm" href="#security" style="background: white; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.14); border-radius: 999px; padding: 0.55rem 1rem; font-weight: 700; transition: all 0.2s ease">
+                            </button>
+                            <button class="btn btn-sm project-filter-btn" type="button" data-filter="security" aria-pressed="false">
                                 <i class="bi me-1 bi-shield-lock"></i>
                                 <span>Sécurité</span>
-                            </a>
-                            <a class="btn btn-sm" href="#mobile" style="background: white; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.14); border-radius: 999px; padding: 0.55rem 1rem; font-weight: 700; transition: all 0.2s ease">
+                            </button>
+                            <button class="btn btn-sm project-filter-btn" type="button" data-filter="mobile" aria-pressed="false">
                                 <i class="bi me-1 bi-phone"></i>
                                 <span>Mobile</span>
-                            </a>
-                            <a class="btn btn-sm" href="#java-systems" style="background: white; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.14); border-radius: 999px; padding: 0.55rem 1rem; font-weight: 700; transition: all 0.2s ease">
+                            </button>
+                            <button class="btn btn-sm project-filter-btn" type="button" data-filter="java-systems" aria-pressed="false">
                                 <i class="bi me-1 bi-code-square"></i>
                                 <span>Java &amp; systèmes</span>
-                            </a>
+                            </button>
                         </div>
                     </div>
-                    <div class="row g-4" id="all-projects">
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.1s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/docker1.png" alt="Docker Project" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                    <p class="small fw-bold mb-4" id="project-filter-status" style="color: #5f6b7a" aria-live="polite">Tous les projets sont affichés.</p>
+                    <div class="row g-4 project-grid" id="all-projects">
+                        <div class="col-lg-6 project-card-shell" data-category="devops-cloud">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.1s both">
+                                <div class="image-container project-image-placeholder project-media project-media--screenshot">
+                                    <img src="assets/docker1.png" alt="Docker Project" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">DevOps - Projet e-commerce</span>
-                                        <a class="small fw-bold" href="#devops-cloud" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">DevOps - Projet e-commerce</span>
+                                        <button class="small project-category-link" type="button" data-filter="devops-cloud">DevOps &amp; Cloud</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">Environnement de développement web avec Docker sous Linux</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Création d'une image Docker intégrant un environnement complet PHP/Laravel avec partage via Docker Hub.</p>
@@ -141,23 +265,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">GitHub</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Jira</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/PenguinShop" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/Oumhella/PenguinShop" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.18s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/image.png" alt="Hotel Management" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="web-jee">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.18s both">
+                                <div class="image-container project-image-placeholder project-media project-media--screenshot">
+                                    <img src="assets/image.png" alt="Hotel Management" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                        <a class="small fw-bold" href="#web-jee" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
+                                        <button class="small project-category-link" type="button" data-filter="web-jee">Développement web / JEE</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">Hotel Management System</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Réalisation complète d'un système de gestion hôtelière.</p>
@@ -166,23 +290,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">PHP</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MySQL</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/Oumhella" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/Oumhella" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.26s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/VerdeNet.png" alt="VerdeNet Project" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="web-jee">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.26s both">
+                                <div class="image-container project-image-placeholder project-media project-media--screenshot">
+                                    <img src="assets/VerdeNet.png" alt="VerdeNet Project" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                        <a class="small fw-bold" href="#web-jee" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
+                                        <button class="small project-category-link" type="button" data-filter="web-jee">Développement web / JEE</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">VerdeNet</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Plateforme web complète mettant en relation des clients avec des professionnels pour des services à domicile.</p>
@@ -193,23 +317,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Tailwind</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MySQL</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/douae-rohand/service_Pro" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/douae-rohand/service_Pro" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.33999999999999997s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/gameacc.png" alt="Java Game" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="java-systems">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.33999999999999997s both">
+                                <div class="image-container project-image-placeholder project-media project-media--screenshot">
+                                    <img src="assets/gameacc.png" alt="Java Game" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Java &amp; systèmes</span>
-                                        <a class="small fw-bold" href="#java-systems" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Java &amp; systèmes</span>
+                                        <button class="small project-category-link" type="button" data-filter="java-systems">Java &amp; systèmes</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">Jeu de Tir Spatial 2D en Java</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Jeu vidéo 2D avec modes solo et multijoueur.</p>
@@ -220,23 +344,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Sockets</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MVC</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/JAVA_jeudetir_Vfin" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/Oumhella/JAVA_jeudetir_Vfin" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.42000000000000004s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/apiSGBDF.png" alt="Java API" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="java-systems">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.42000000000000004s both">
+                                <div class="image-container project-image-placeholder project-media project-media--screenshot">
+                                    <img src="assets/apiSGBDF.png" alt="Java API" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Java &amp; systèmes</span>
-                                        <a class="small fw-bold" href="#java-systems" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Java &amp; systèmes</span>
+                                        <button class="small project-category-link" type="button" data-filter="java-systems">Java &amp; systèmes</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">API Java Multi-SGBD</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">API modulaire pour opérations CRUD sur plusieurs systèmes de gestion de bases de données.</p>
@@ -247,23 +371,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JDBC</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JUnit</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/Java_API" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/Oumhella/Java_API" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.5s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/coupe3.png" alt="CAN Website" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="web-jee">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.5s both">
+                                <div class="image-container project-image-placeholder project-media project-media--screenshot">
+                                    <img src="assets/coupe3.png" alt="CAN Website" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                        <a class="small fw-bold" href="#web-jee" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
+                                        <button class="small project-category-link" type="button" data-filter="web-jee">Développement web / JEE</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">Site Web CAN Maroc 2025</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Site web interactif dédié à la CAN Maroc 2025.</p>
@@ -273,23 +397,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Bootstrap</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JavaScript</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/ism4il-04/Coupe_d-Afrique" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/ism4il-04/Coupe_d-Afrique" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur Github</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.58s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/aut2.png" alt="Automates" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="java-systems">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.58s both">
+                                <div class="image-container project-image-placeholder project-media project-media--logo" style="--project-media-bg: linear-gradient(135deg, #fffaf0 0%, #f8fafc 55%, #ecfeff 100%)">
+                                    <img src="assets/aut2.png" alt="Automates" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Algorithmique - C</span>
-                                        <a class="small fw-bold" href="#java-systems" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Algorithmique - C</span>
+                                        <button class="small project-category-link" type="button" data-filter="java-systems">Java &amp; systèmes</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">Manipulation d'Automates Finis</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Programme en C pour créer, analyser et optimiser des automates.</p>
@@ -300,23 +424,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Automates</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Graphviz</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/Projet_THL" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/Oumhella/Projet_THL" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.66s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/AURAFLOW.png" alt="Project Manager" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="ml-ai">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.66s both">
+                                <div class="image-container project-image-placeholder project-media project-media--logo" style="--project-media-bg: linear-gradient(135deg, #f7f3ff 0%, #ffffff 52%, #eef2ff 100%)">
+                                    <img src="assets/AURAFLOW.png" alt="Project Manager" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Full-stack &amp; IA</span>
-                                        <a class="small fw-bold" href="#ml-ai" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Full-stack &amp; IA</span>
+                                        <button class="small project-category-link" type="button" data-filter="ml-ai">ML &amp; systèmes intelligents</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">Project-Manager</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Plateforme de gestion de projets full-stack intégrant des fonctionnalités d'analyse via l'IA.</p>
@@ -329,23 +453,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Keycloak</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Gemini API</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/Tasks-projects-management" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/Oumhella/Tasks-projects-management" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.74s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/souk212.png" alt="SOUK212" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="ml-ai">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.74s both">
+                                <div class="image-container project-image-placeholder project-media project-media--logo" style="--project-media-bg: linear-gradient(135deg, #fff7ed 0%, #fffbeb 48%, #ffffff 100%)">
+                                    <img src="assets/souk212.png" alt="SOUK212" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">E-commerce intelligent</span>
-                                        <a class="small fw-bold" href="#ml-ai" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">E-commerce intelligent</span>
+                                        <button class="small project-category-link" type="button" data-filter="ml-ai">ML &amp; systèmes intelligents</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">SOUK212</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Application web e-commerce mobile-friendly multi-coopérative avec assistance par chatbot intelligent.</p>
@@ -357,23 +481,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">N8N</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Chatbot</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/douae-rohand/Projet_E-commerce" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/douae-rohand/Projet_E-commerce" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.82s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/clubs.png" alt="Clubs events manager" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="web-jee">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.82s both">
+                                <div class="image-container project-image-placeholder project-media project-media--logo project-media--white-logo" style="--project-media-bg: linear-gradient(135deg, #111827 0%, #1e3a8a 100%)">
+                                    <img src="assets/clubs.png" alt="Clubs events manager" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                        <a class="small fw-bold" href="#web-jee" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
+                                        <button class="small project-category-link" type="button" data-filter="web-jee">Développement web / JEE</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">Clubs events manager</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Application web de gestion des clubs et événements dédiée aux établissements d'enseignement supérieur.</p>
@@ -383,23 +507,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JavaScript</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MySQL</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/ism4il-04/Clubs_Events_Manager" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/ism4il-04/Clubs_Events_Manager" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.9s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/terrain.png" alt="Book&amp;Play" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="web-jee">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.9s both">
+                                <div class="image-container project-image-placeholder project-media project-media--screenshot">
+                                    <img src="assets/terrain.png" alt="Book&amp;Play" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                        <a class="small fw-bold" href="#web-jee" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
+                                        <button class="small project-category-link" type="button" data-filter="web-jee">Développement web / JEE</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">Book&amp;Play</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Application web complète de gestion de terrains sportifs, réservations et tournois.</p>
@@ -409,23 +533,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JavaScript</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MySQL</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/Book-Play" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/Oumhella/Book-Play" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.98s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/univ4.png" alt="UniServices" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="web-jee">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 0.98s both">
+                                <div class="image-container project-image-placeholder project-media project-media--screenshot">
+                                    <img src="assets/univ4.png" alt="UniServices" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                        <a class="small fw-bold" href="#web-jee" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
+                                        <button class="small project-category-link" type="button" data-filter="web-jee">Développement web / JEE</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">UniServices</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Plateforme de gestion des documents administratifs des étudiants.</p>
@@ -435,26 +559,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">ReactJS</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MySQL</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/AmineElBiydi/Gestion_document_univ" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/AmineElBiydi/Gestion_document_univ" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 1.06s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <div class="text-center" style="color: #667eea">
-                                        <i class="bi bi-git" style="font-size: 3.25rem"></i>
-                                        <p class="mt-3 mb-0 fw-bold" style="color: #4a5568">Github repos classifier</p>
-                                    </div>
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="ml-ai">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 1.06s both">
+                                <div class="image-container project-image-placeholder project-media project-media--logo" style="--project-media-bg: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 55%, #ffffff 100%)">
+                                    <img src="assets/ml.png" alt="GitHub Repository Activity Classifier" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Machine learning</span>
-                                        <a class="small fw-bold" href="#ml-ai" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Machine learning</span>
+                                        <button class="small project-category-link" type="button" data-filter="ml-ai">ML &amp; systèmes intelligents</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">GitHub Repository Activity Classifier</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Développement d'un modèle de classification supervisée binaire visant à prédire l'inactivité d'un dépôt GitHub, définie par une absence de push pendant plus de 180 jours.</p>
@@ -466,26 +587,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">GitHub API</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Data preprocessing</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/ism4il-04/github-repo-activity-classifier" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/ism4il-04/github-repo-activity-classifier" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 1.1400000000000001s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <div class="text-center" style="color: #667eea">
-                                        <i class="bi bi-people" style="font-size: 3.25rem"></i>
-                                        <p class="mt-3 mb-0 fw-bold" style="color: #4a5568">SPAWNTA</p>
-                                    </div>
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="web-jee">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 1.1400000000000001s both">
+                                <div class="image-container project-image-placeholder project-media project-media--screenshot">
+                                    <img src="assets/spawnta.png" alt="Spawnta" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - JEE</span>
-                                        <a class="small fw-bold" href="#web-jee" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - JEE</span>
+                                        <button class="small project-category-link" type="button" data-filter="web-jee">Développement web / JEE</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">Spawnta</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Plateforme intelligente de mise en relation pour voyages et activités, pensée comme une expérience sociale moderne autour des sorties, groupes et centres d'intérêt.</p>
@@ -498,26 +616,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Docker</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Kubernetes</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/ism4il-04/spawnta" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/ism4il-04/spawnta" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 1.2200000000000002s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <div class="text-center" style="color: #667eea">
-                                        <i class="bi bi-bus-front" style="font-size: 3.25rem"></i>
-                                        <p class="mt-3 mb-0 fw-bold" style="color: #4a5568">SGITU</p>
-                                    </div>
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="microservices">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 1.2200000000000002s both">
+                                <div class="image-container project-image-placeholder project-media project-media--logo" style="--project-media-bg: linear-gradient(135deg, #ecfeff 0%, #ffffff 48%, #f0fdf4 100%)">
+                                    <img src="assets/sgitu.png" alt="Architecture microservices de gestion des transports urbains" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Microservices</span>
-                                        <a class="small fw-bold" href="#microservices" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Microservices</span>
+                                        <button class="small project-category-link" type="button" data-filter="microservices">Microservices</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">Architecture microservices de gestion des transports urbains</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Architecture composée de 10 services pour la gestion des transports urbains, avec un travail centré sur l'identité, les comptes et la sécurité applicative.</p>
@@ -530,26 +645,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Docker</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">API contracts</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/SGITU-Microservices-Users-management-" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/Oumhella/SGITU-Microservices-Users-management-" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 1.3s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <div class="text-center" style="color: #667eea">
-                                        <i class="bi bi-lock" style="font-size: 3.25rem"></i>
-                                        <p class="mt-3 mb-0 fw-bold" style="color: #4a5568">ChriOnline</p>
-                                    </div>
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="security">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 1.3s both">
+                                <div class="image-container project-image-placeholder project-media project-media--screenshot">
+                                    <img src="assets/chriOnline.png" alt="ChriOnline" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Sécurité informatique</span>
-                                        <a class="small fw-bold" href="#security" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Sécurité informatique</span>
+                                        <button class="small project-category-link" type="button" data-filter="security">Sécurité</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">ChriOnline</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Plateforme e-commerce client-serveur hautement sécurisée, construite autour d'une architecture de défense en profondeur.</p>
@@ -564,23 +676,23 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MFA</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">RBAC</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/ChriOnline-Client-Server-App" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/Oumhella/ChriOnline-Client-Server-App" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="project-card h-100" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 1.3800000000000001s both">
-                                <div class="image-container project-image-placeholder" style="position: relative; overflow: hidden">
-                                    <img src="assets/medico.jpeg" alt="Application mobile Medico" style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease" />
-                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease"></div>
+                        <div class="col-lg-6 project-card-shell" data-category="mobile">
+                            <div class="project-card" style="background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out 1.3800000000000001s both">
+                                <div class="image-container project-image-placeholder project-media project-media--screenshot">
+                                    <img src="assets/medico.jpeg" alt="Application mobile Medico" />
+                                    <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease"></div>
                                 </div>
-                                <div class="p-4">
+                                <div class="project-content">
                                     <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                                        <span class="badge" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Développement mobile</span>
-                                        <a class="small fw-bold" href="#mobile" style="color: #667eea; text-decoration: none">Voir la catégorie</a>
+                                        <span class="badge" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Développement mobile</span>
+                                        <button class="small project-category-link" type="button" data-filter="mobile">Mobile</button>
                                     </div>
                                     <h2 class="fw-bold mb-3" style="color: #2d3748; font-size: 1.45rem; line-height: 1.25">Application mobile Medico</h2>
                                     <p class="mb-2" style="color: #4a5568; line-height: 1.65">Application mobile de gestion des consultations médicales développée avec Flutter et Firebase, destinée à fluidifier l'organisation entre secrétariat, patients et rendez-vous.</p>
@@ -593,7 +705,7 @@
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Réservations</span>
                                         <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Rendez-vous</span>
                                     </div>
-                                    <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/e-rendezvous-medecin" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
+                                    <a class="btn btn-primary mt-4 project-action" href="https://github.com/Oumhella/e-rendezvous-medecin" target="_blank" style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease">
                                         <i class="bi me-2 bi-github"></i>
                                         <span>Voir sur GitHub</span>
                                     </a>
@@ -601,592 +713,6 @@
                             </div>
                         </div>
                     </div>
-                    <section class="mt-5" id="ml-ai" style="scroll-margin-top: 7rem">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
-                            <h2 class="fw-bolder mb-0" style="color: #2d3748; font-size: 1.65rem">
-                                <i class="bi me-2 bi-cpu" style="color: #667eea"></i>
-                                <span>ML &amp; systèmes intelligents</span>
-                            </h2>
-                            <a class="small fw-bold" href="#all-projects" style="color: #667eea; text-decoration: none">
-                                <i class="bi bi-arrow-up me-1"></i>
-                                <span>Retour aux projets</span>
-                            </a>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/AURAFLOW.png" alt="Project Manager" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Full-stack &amp; IA</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">Project-Manager</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Plateforme de gestion de projets full-stack intégrant des fonctionnalités d'analyse via l'IA.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Backend Spring Boot, frontend React TypeScript, sécurité avec Keycloak/JWT et utilisation de Gemini API pour analyser les dépendances entre tâches et fournir des insights d'aide à la décision.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Spring Boot</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">ReactJS</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">TypeScript</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">PostgreSQL</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Keycloak</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Gemini API</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/Tasks-projects-management" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/souk212.png" alt="SOUK212" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">E-commerce intelligent</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">SOUK212</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Application web e-commerce mobile-friendly multi-coopérative avec assistance par chatbot intelligent.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">La plateforme connecte clients, coopératives et super-administrateurs pour promouvoir l'artisanat local à travers une expérience d'achat moderne, fluide et sécurisée.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">ASP.NET</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Bootstrap</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">SQL Server</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">N8N</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Chatbot</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/douae-rohand/Projet_E-commerce" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px">
-                                                <div class="text-center" style="color: #667eea">
-                                                    <i class="bi bi-git" style="font-size: 3rem"></i>
-                                                    <p class="mt-3 mb-0 fw-bold" style="color: #4a5568">Github repos classifier</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Machine learning</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">GitHub Repository Activity Classifier</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Développement d'un modèle de classification supervisée binaire visant à prédire l'inactivité d'un dépôt GitHub, définie par une absence de push pendant plus de 180 jours.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Le projet exploite des métadonnées publiques pour aider à identifier les bibliothèques open source potentiellement abandonnées et réduire les risques liés à leur utilisation en production.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Python</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Machine Learning</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Classification</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">GitHub API</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Data preprocessing</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/ism4il-04/github-repo-activity-classifier" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="mt-5" id="web-jee" style="scroll-margin-top: 7rem">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
-                            <h2 class="fw-bolder mb-0" style="color: #2d3748; font-size: 1.65rem">
-                                <i class="bi me-2 bi-window-stack" style="color: #667eea"></i>
-                                <span>Développement web / JEE</span>
-                            </h2>
-                            <a class="small fw-bold" href="#all-projects" style="color: #667eea; text-decoration: none">
-                                <i class="bi bi-arrow-up me-1"></i>
-                                <span>Retour aux projets</span>
-                            </a>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/image.png" alt="Hotel Management" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">Hotel Management System</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Réalisation complète d'un système de gestion hôtelière.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Analyse fonctionnelle, conception technique et développement en PHP avec une base de données MySQL pour gérer les opérations principales d'un hôtel.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">PHP</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MySQL</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/Oumhella" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/VerdeNet.png" alt="VerdeNet Project" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">VerdeNet</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Plateforme web complète mettant en relation des clients avec des professionnels pour des services à domicile.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Gestion du cycle de vie d'une intervention, depuis la demande initiale jusqu'à la facturation et l'évaluation mutuelle, avec Laravel, VueJS, Tailwind et MySQL.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Laravel</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">VueJS</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Tailwind</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MySQL</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/douae-rohand/service_Pro" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/coupe3.png" alt="CAN Website" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">Site Web CAN Maroc 2025</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Site web interactif dédié à la CAN Maroc 2025.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Interface responsive, animations JavaScript et intégration Bootstrap pour présenter l'événement de manière claire et dynamique.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">HTML/CSS</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Bootstrap</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JavaScript</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/ism4il-04/Coupe_d-Afrique" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur Github</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/clubs.png" alt="Clubs events manager" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">Clubs events manager</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Application web de gestion des clubs et événements dédiée aux établissements d'enseignement supérieur.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Espaces étudiant, club et administrateur pour gérer les membres, événements, annonces, validations, statistiques et rapports d'activité.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">PHP</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JavaScript</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MySQL</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/ism4il-04/Clubs_Events_Manager" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/terrain.png" alt="Book&amp;Play" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">Book&amp;Play</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Application web complète de gestion de terrains sportifs, réservations et tournois.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Gestion de trois niveaux d'accès : utilisateurs, gestionnaires et administrateurs, avec réservations, notifications, messagerie, permissions et analyses statistiques.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">PHP</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JavaScript</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MySQL</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/Book-Play" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/univ4.png" alt="UniServices" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Développement web</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">UniServices</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Plateforme de gestion des documents administratifs des étudiants.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Soumission des demandes, suivi de l'état d'avancement, réclamations, espace administrateur, validation finale et notification automatique par courrier électronique.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Laravel</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">ReactJS</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MySQL</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/AmineElBiydi/Gestion_document_univ" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px">
-                                                <div class="text-center" style="color: #667eea">
-                                                    <i class="bi bi-people" style="font-size: 3rem"></i>
-                                                    <p class="mt-3 mb-0 fw-bold" style="color: #4a5568">SPAWNTA</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - JEE</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">Spawnta</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Plateforme intelligente de mise en relation pour voyages et activités, pensée comme une expérience sociale moderne autour des sorties, groupes et centres d'intérêt.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Développement avec Spring Boot et Angular, communication temps réel via Kafka et WebSocket, intégration d'un moteur intelligent de matching entre utilisateurs, puis déploiement avec Docker et Kubernetes.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Spring Boot</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Angular</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Kafka</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">WebSocket</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Docker</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Kubernetes</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/ism4il-04/spawnta" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="mt-5" id="devops-cloud" style="scroll-margin-top: 7rem">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
-                            <h2 class="fw-bolder mb-0" style="color: #2d3748; font-size: 1.65rem">
-                                <i class="bi me-2 bi-cloud-arrow-up" style="color: #667eea"></i>
-                                <span>DevOps &amp; Cloud</span>
-                            </h2>
-                            <a class="small fw-bold" href="#all-projects" style="color: #667eea; text-decoration: none">
-                                <i class="bi bi-arrow-up me-1"></i>
-                                <span>Retour aux projets</span>
-                            </a>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/docker1.png" alt="Docker Project" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">DevOps - Projet e-commerce</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">Environnement de développement web avec Docker sous Linux</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Création d'une image Docker intégrant un environnement complet PHP/Laravel avec partage via Docker Hub.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Gestion du code source via GitHub, organisation du travail en équipe avec Jira, mise en place d'un pipeline CI/CD et développement d'un site e-commerce PenguinShop.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Docker</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Laravel</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">CI/CD</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">GitHub</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Jira</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/PenguinShop" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="mt-5" id="microservices" style="scroll-margin-top: 7rem">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
-                            <h2 class="fw-bolder mb-0" style="color: #2d3748; font-size: 1.65rem">
-                                <i class="bi me-2 bi-diagram-3" style="color: #667eea"></i>
-                                <span>Microservices</span>
-                            </h2>
-                            <a class="small fw-bold" href="#all-projects" style="color: #667eea; text-decoration: none">
-                                <i class="bi bi-arrow-up me-1"></i>
-                                <span>Retour aux projets</span>
-                            </a>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px">
-                                                <div class="text-center" style="color: #667eea">
-                                                    <i class="bi bi-bus-front" style="font-size: 3rem"></i>
-                                                    <p class="mt-3 mb-0 fw-bold" style="color: #4a5568">SGITU</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Microservices</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">Architecture microservices de gestion des transports urbains</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Architecture composée de 10 services pour la gestion des transports urbains, avec un travail centré sur l'identité, les comptes et la sécurité applicative.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Responsable du microservice de gestion des utilisateurs : conception d'un Identity Provider centralisé avec Spring Boot 4, source de vérité unique pour comptes, profils et rôles. Mise en place des tokens JWT, d'une API REST sécurisée avec Spring Security, de la conteneurisation Docker et coordination des contrats d'API avec 9 équipes dépendantes.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Spring Boot 4</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Spring Security</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JWT</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">REST API</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Docker</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">API contracts</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/SGITU-Microservices-Users-management-" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="mt-5" id="security" style="scroll-margin-top: 7rem">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
-                            <h2 class="fw-bolder mb-0" style="color: #2d3748; font-size: 1.65rem">
-                                <i class="bi me-2 bi-shield-lock" style="color: #667eea"></i>
-                                <span>Sécurité</span>
-                            </h2>
-                            <a class="small fw-bold" href="#all-projects" style="color: #667eea; text-decoration: none">
-                                <i class="bi bi-arrow-up me-1"></i>
-                                <span>Retour aux projets</span>
-                            </a>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px">
-                                                <div class="text-center" style="color: #667eea">
-                                                    <i class="bi bi-lock" style="font-size: 3rem"></i>
-                                                    <p class="mt-3 mb-0 fw-bold" style="color: #4a5568">ChriOnline</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Sécurité informatique</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">ChriOnline</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Plateforme e-commerce client-serveur hautement sécurisée, construite autour d'une architecture de défense en profondeur.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Conception d'une application JavaFX avec Sockets, intégration de HashiCorp Vault pour les secrets et certificats dynamiques, sécurisation via mTLS et AES-256, développement d'un IDS/IPS maison anti-spoofing et anti-bruteforce, MFA avec OTP, RSA et TOTP, ainsi qu'un contrôle d'accès strict RBAC.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JavaFX</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Sockets</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">HashiCorp Vault</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">mTLS</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">AES-256</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">IDS/IPS</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MFA</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">RBAC</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/ChriOnline-Client-Server-App" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="mt-5" id="mobile" style="scroll-margin-top: 7rem">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
-                            <h2 class="fw-bolder mb-0" style="color: #2d3748; font-size: 1.65rem">
-                                <i class="bi me-2 bi-phone" style="color: #667eea"></i>
-                                <span>Mobile</span>
-                            </h2>
-                            <a class="small fw-bold" href="#all-projects" style="color: #667eea; text-decoration: none">
-                                <i class="bi bi-arrow-up me-1"></i>
-                                <span>Retour aux projets</span>
-                            </a>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/medico.jpeg" alt="Application mobile Medico" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">ENSATÉ - Développement mobile</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">Application mobile Medico</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Application mobile de gestion des consultations médicales développée avec Flutter et Firebase, destinée à fluidifier l'organisation entre secrétariat, patients et rendez-vous.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Contribution à la conception et au développement de l'espace secrétaire : gestion du planning médical, création et suivi des réservations, organisation des rendez-vous, consultation des disponibilités et synchronisation des données avec Firebase. L'objectif était de rendre le parcours administratif plus rapide, clair et fiable pour le personnel médical.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Flutter</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Firebase</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Mobile UI</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Planning</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Réservations</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Rendez-vous</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/e-rendezvous-medecin" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <section class="mt-5" id="java-systems" style="scroll-margin-top: 7rem">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
-                            <h2 class="fw-bolder mb-0" style="color: #2d3748; font-size: 1.65rem">
-                                <i class="bi me-2 bi-code-square" style="color: #667eea"></i>
-                                <span>Java &amp; systèmes</span>
-                            </h2>
-                            <a class="small fw-bold" href="#all-projects" style="color: #667eea; text-decoration: none">
-                                <i class="bi bi-arrow-up me-1"></i>
-                                <span>Retour aux projets</span>
-                            </a>
-                        </div>
-                        <div class="row g-4">
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/gameacc.png" alt="Java Game" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Java &amp; systèmes</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">Jeu de Tir Spatial 2D en Java</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Jeu vidéo 2D avec modes solo et multijoueur.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Développement avec JavaFX, Sockets TCP et architecture MVC pour structurer la logique de jeu, l'affichage et la communication réseau.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Java</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JavaFX</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Sockets</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">MVC</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/JAVA_jeudetir_Vfin" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/apiSGBDF.png" alt="Java API" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Java &amp; systèmes</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">API Java Multi-SGBD</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">API modulaire pour opérations CRUD sur plusieurs systèmes de gestion de bases de données.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Support de MySQL, PostgreSQL et SQL Server avec configuration centralisée, architecture extensible et tests JUnit.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Java 17</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Maven</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JDBC</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">JUnit</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/Java_API" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="project-card" style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease">
-                                    <div class="row g-0 align-items-stretch">
-                                        <div class="col-lg-4">
-                                            <div class="image-container project-image-placeholder" style="height: 100%; min-height: 240px"><img src="assets/aut2.png" alt="Automates" style="width: 100%; height: 100%; min-height: 240px; object-fit: cover" /></div>
-                                        </div>
-                                        <div class="col-lg-8">
-                                            <div class="p-4 p-lg-5">
-                                                <span class="badge mb-3" style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem">Algorithmique - C</span>
-                                                <h3 class="fw-bold mb-3" style="color: #2d3748">Manipulation d'Automates Finis</h3>
-                                                <p class="mb-2" style="color: #4a5568; line-height: 1.7">Programme en C pour créer, analyser et optimiser des automates.</p>
-                                                <p class="mb-3" style="color: #5f6b7a; line-height: 1.7">Support des fichiers .dot et fonctionnalités autour de la manipulation d'automates finis dans un contexte algorithmique.</p>
-                                                <div class="tech-badges" style="display: flex; flex-wrap: wrap; gap: 0.45rem">
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">C</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Algorithms</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Automates</span>
-                                                    <span class="badge" style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem">Graphviz</span>
-                                                </div>
-                                                <a class="btn btn-primary mt-4" href="https://github.com/Oumhella/Projet_THL" target="_blank" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease">
-                                                    <i class="bi me-2 bi-github"></i>
-                                                    <span>Voir sur GitHub</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
                 </div>
             </section>
             <!-- Call to action section-->
@@ -1202,5 +728,44 @@
         <!-- Footer-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/scripts.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const filterButtons = Array.from(document.querySelectorAll('.project-filter-btn'));
+                const filterTriggers = Array.from(document.querySelectorAll('[data-filter]'));
+                const projectCards = Array.from(document.querySelectorAll('.project-card-shell'));
+                const status = document.getElementById('project-filter-status');
+                const grid = document.getElementById('all-projects');
+
+                if (!filterTriggers.length || !projectCards.length || !grid) return;
+
+                const labels = new Map(filterButtons.map((button) => [button.dataset.filter, button.textContent.trim()]));
+
+                function applyFilter(filter) {
+                    let visibleCount = 0;
+
+                    projectCards.forEach((card) => {
+                        const isVisible = filter === 'all' || card.dataset.category === filter;
+                        card.classList.toggle('is-hidden', !isVisible);
+                        if (isVisible) visibleCount += 1;
+                    });
+
+                    filterButtons.forEach((button) => {
+                        const isActive = button.dataset.filter === filter;
+                        button.classList.toggle('is-active', isActive);
+                        button.setAttribute('aria-pressed', String(isActive));
+                    });
+
+                    if (status) {
+                        status.textContent = filter === 'all' ? 'Tous les projets sont affichés.' : `${visibleCount} projet${visibleCount > 1 ? 's' : ''} affiché${visibleCount > 1 ? 's' : ''} dans ${labels.get(filter)}.`;
+                    }
+
+                    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                filterTriggers.forEach((button) => {
+                    button.addEventListener('click', () => applyFilter(button.dataset.filter));
+                });
+            });
+        </script>
     </body>
 </html>

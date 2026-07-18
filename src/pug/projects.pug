@@ -26,28 +26,151 @@ html(lang="en")
         transform: translateY(-8px);
         box-shadow: 0 20px 55px rgba(45, 55, 72, 0.16) !important;
       }
+      .project-grid {
+        align-items: flex-start;
+      }
+      .project-card {
+        height: auto;
+      }
+      .project-content {
+        padding: clamp(1.25rem, 3vw, 2rem);
+      }
       .project-card:hover .overlay {
         opacity: 1;
       }
+      .project-card:hover .project-media img {
+        transform: scale(1.035);
+      }
       .project-filter-nav a:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 18px rgba(102, 126, 234, 0.16);
+        box-shadow: 0 8px 18px rgba(30, 58, 138, 0.16);
+      }
+      .project-filter-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.55rem;
+        overflow: visible;
+      }
+      .project-filter-btn {
+        flex: 0 0 auto;
+        background: #ffffff;
+        color: #2d3748;
+        border: 1px solid rgba(45, 55, 72, 0.14);
+        border-radius: 999px;
+        padding: 0.55rem 1rem;
+        font-weight: 700;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+      }
+      .project-filter-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(30, 58, 138, 0.16);
+      }
+      .project-filter-btn.is-active {
+        background: linear-gradient(135deg, #111827 0%, #1e3a8a 58%, #38bdf8 100%);
+        color: #ffffff;
+        border-color: transparent;
+      }
+      .project-card-shell.is-hidden {
+        display: none;
+      }
+      .project-category-link {
+        appearance: none;
+        background: none;
+        border: 0;
+        color: #1e3a8a;
+        font: inherit;
+        font-weight: 700;
+        padding: 0;
       }
       .project-image-placeholder {
-        min-height: 245px;
-        background: linear-gradient(135deg, #eef2ff 0%, #f8fbff 48%, #e6fffa 100%);
+        background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 50%, #f0fdfa 100%);
         display: flex;
         align-items: center;
         justify-content: center;
       }
+      .project-media {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+        overflow: hidden;
+      }
+      .project-media img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.4s ease;
+      }
+      .project-media--logo {
+        background: var(--project-media-bg, linear-gradient(135deg, #ffffff 0%, #f7fafc 100%));
+      }
+      .project-media--logo img {
+        object-fit: contain;
+        padding: clamp(0.65rem, 2.4vw, 1.4rem);
+        filter: drop-shadow(0 12px 20px rgba(15, 23, 42, 0.16));
+      }
+      .project-media--logo.project-media--white-logo img {
+        filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.2));
+      }
+      .project-media--screenshot img {
+        object-fit: cover;
+        padding: 0;
+        background: #f8fafc;
+      }
+      .project-action {
+        width: fit-content;
+        max-width: 100%;
+      }
+      .tech-badges .badge {
+        white-space: normal;
+        text-align: left;
+      }
+      @media (max-width: 991.98px) {
+        .project-filter-nav {
+          position: static !important;
+        }
+        .project-card:hover {
+          transform: none;
+        }
+      }
+      @media (max-width: 575.98px) {
+        section.py-5 {
+          padding-top: 2rem !important;
+          padding-bottom: 2rem !important;
+        }
+        .project-filter-nav {
+          border-radius: 0.85rem !important;
+          padding: 0.65rem !important;
+        }
+        .project-filter-btn {
+          flex: 1 1 calc(50% - 0.55rem);
+          min-width: 0;
+          padding-inline: 0.7rem !important;
+          white-space: normal;
+        }
+        .project-content {
+          padding: 1.1rem;
+        }
+        .project-media {
+          aspect-ratio: 4 / 3;
+        }
+        .project-media--logo img {
+          padding: 0.8rem;
+        }
+        .project-action {
+          width: 100%;
+          text-align: center;
+        }
+      }
   body.d-flex.flex-column.h-100.bg-light
     main.flex-shrink-0
       // Navigation
-      nav.navbar.navbar-expand-lg.navbar-light.py-3(style="background: #fff; box-shadow: 0 2px 16px rgba(30,48,243,0.07); border-radius: 0 0 1.5rem 1.5rem; transition: background 0.3s;")
+      nav.navbar.navbar-expand-lg.navbar-light.py-3(style="background: #0b1220; box-shadow: 0 10px 30px rgba(5,9,20,0.16); border-radius: 0; transition: background 0.3s;")
         .container.px-5
           a.navbar-brand(href="index.html")
-            span.fw-bolder(style="background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;") Mon Portfolio
-          button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation", style="border: none; background: linear-gradient(90deg, #1e30f3 0%, #e21e80 100%);")
+            span.fw-bolder(style="background: linear-gradient(90deg, #f8fafc 0%, #38bdf8 70%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;") OUMHELLA ABDELLATIF
+          button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation", style="border: none; background: linear-gradient(90deg, #1e3a8a 0%, #38bdf8 100%);")
             span.navbar-toggler-icon(style="background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23fff\' viewBox=\'0 0 30 30\'%3e%3cpath stroke=\'rgba(255,255,255,0.7)\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/%3e%3c/svg%3e');")
           #navbarSupportedContent.collapse.navbar-collapse
             ul.navbar-nav.ms-auto.mb-2.mb-lg-0.small.fw-bolder
@@ -86,6 +209,7 @@ html(lang="en")
                 tags: ['Docker', 'Laravel', 'CI/CD', 'GitHub', 'Jira'],
                 icon: 'bi-box-seam',
                 image: 'assets/docker1.png',
+                imageMode: 'screenshot',
                 imageAlt: 'Docker Project',
                 link: 'https://github.com/Oumhella/PenguinShop',
                 linkLabel: 'Voir sur GitHub',
@@ -100,6 +224,7 @@ html(lang="en")
                 tags: ['PHP', 'MySQL'],
                 icon: 'bi-building',
                 image: 'assets/image.png',
+                imageMode: 'screenshot',
                 imageAlt: 'Hotel Management',
                 link: 'https://github.com/Oumhella',
                 linkLabel: 'Voir sur GitHub',
@@ -114,6 +239,7 @@ html(lang="en")
                 tags: ['Laravel', 'VueJS', 'Tailwind', 'MySQL'],
                 icon: 'bi-house-heart',
                 image: 'assets/VerdeNet.png',
+                imageMode: 'screenshot',
                 imageAlt: 'VerdeNet Project',
                 link: 'https://github.com/douae-rohand/service_Pro',
                 linkLabel: 'Voir sur GitHub',
@@ -128,6 +254,7 @@ html(lang="en")
                 tags: ['Java', 'JavaFX', 'Sockets', 'MVC'],
                 icon: 'bi-controller',
                 image: 'assets/gameacc.png',
+                imageMode: 'screenshot',
                 imageAlt: 'Java Game',
                 link: 'https://github.com/Oumhella/JAVA_jeudetir_Vfin',
                 linkLabel: 'Voir sur GitHub',
@@ -142,6 +269,7 @@ html(lang="en")
                 tags: ['Java 17', 'Maven', 'JDBC', 'JUnit'],
                 icon: 'bi-database',
                 image: 'assets/apiSGBDF.png',
+                imageMode: 'screenshot',
                 imageAlt: 'Java API',
                 link: 'https://github.com/Oumhella/Java_API',
                 linkLabel: 'Voir sur GitHub',
@@ -156,6 +284,7 @@ html(lang="en")
                 tags: ['HTML/CSS', 'Bootstrap', 'JavaScript'],
                 icon: 'bi-globe2',
                 image: 'assets/coupe3.png',
+                imageMode: 'screenshot',
                 imageAlt: 'CAN Website',
                 link: 'https://github.com/ism4il-04/Coupe_d-Afrique',
                 linkLabel: 'Voir sur Github',
@@ -170,6 +299,8 @@ html(lang="en")
                 tags: ['C', 'Algorithms', 'Automates', 'Graphviz'],
                 icon: 'bi-diagram-2',
                 image: 'assets/aut2.png',
+                imageMode: 'logo',
+                mediaBg: 'linear-gradient(135deg, #fffaf0 0%, #f8fafc 55%, #ecfeff 100%)',
                 imageAlt: 'Automates',
                 link: 'https://github.com/Oumhella/Projet_THL',
                 linkLabel: 'Voir sur GitHub',
@@ -184,6 +315,8 @@ html(lang="en")
                 tags: ['Spring Boot', 'ReactJS', 'TypeScript', 'PostgreSQL', 'Keycloak', 'Gemini API'],
                 icon: 'bi-kanban',
                 image: 'assets/AURAFLOW.png',
+                imageMode: 'logo',
+                mediaBg: 'linear-gradient(135deg, #f7f3ff 0%, #ffffff 52%, #eef2ff 100%)',
                 imageAlt: 'Project Manager',
                 link: 'https://github.com/Oumhella/Tasks-projects-management',
                 linkLabel: 'Voir sur GitHub',
@@ -198,6 +331,8 @@ html(lang="en")
                 tags: ['ASP.NET', 'Bootstrap', 'SQL Server', 'N8N', 'Chatbot'],
                 icon: 'bi-bag-check',
                 image: 'assets/souk212.png',
+                imageMode: 'logo',
+                mediaBg: 'linear-gradient(135deg, #fff7ed 0%, #fffbeb 48%, #ffffff 100%)',
                 imageAlt: 'SOUK212',
                 link: 'https://github.com/douae-rohand/Projet_E-commerce',
                 linkLabel: 'Voir sur GitHub',
@@ -212,6 +347,9 @@ html(lang="en")
                 tags: ['PHP', 'JavaScript', 'MySQL'],
                 icon: 'bi-calendar-event',
                 image: 'assets/clubs.png',
+                imageMode: 'logo',
+                logoTone: 'light',
+                mediaBg: 'linear-gradient(135deg, #111827 0%, #1e3a8a 100%)',
                 imageAlt: 'Clubs events manager',
                 link: 'https://github.com/ism4il-04/Clubs_Events_Manager',
                 linkLabel: 'Voir sur GitHub',
@@ -226,6 +364,7 @@ html(lang="en")
                 tags: ['PHP', 'JavaScript', 'MySQL'],
                 icon: 'bi-trophy',
                 image: 'assets/terrain.png',
+                imageMode: 'screenshot',
                 imageAlt: 'Book&Play',
                 link: 'https://github.com/Oumhella/Book-Play',
                 linkLabel: 'Voir sur GitHub',
@@ -240,6 +379,7 @@ html(lang="en")
                 tags: ['Laravel', 'ReactJS', 'MySQL'],
                 icon: 'bi-mortarboard',
                 image: 'assets/univ4.png',
+                imageMode: 'screenshot',
                 imageAlt: 'UniServices',
                 link: 'https://github.com/AmineElBiydi/Gestion_document_univ',
                 linkLabel: 'Voir sur GitHub',
@@ -253,6 +393,9 @@ html(lang="en")
                 details: "Le projet exploite des métadonnées publiques pour aider à identifier les bibliothèques open source potentiellement abandonnées et réduire les risques liés à leur utilisation en production.",
                 tags: ['Python', 'Machine Learning', 'Classification', 'GitHub API', 'Data preprocessing'],
                 icon: 'bi-git',
+                image: 'assets/ml.png',
+                imageMode: 'logo',
+                mediaBg: 'linear-gradient(135deg, #f8fafc 0%, #e0f2fe 55%, #ffffff 100%)',
                 imageLabel: 'Github repos classifier',
                 link: 'https://github.com/ism4il-04/github-repo-activity-classifier',
                 linkLabel: 'Voir sur GitHub',
@@ -266,6 +409,8 @@ html(lang="en")
                 details: "Développement avec Spring Boot et Angular, communication temps réel via Kafka et WebSocket, intégration d'un moteur intelligent de matching entre utilisateurs, puis déploiement avec Docker et Kubernetes.",
                 tags: ['Spring Boot', 'Angular', 'Kafka', 'WebSocket', 'Docker', 'Kubernetes'],
                 icon: 'bi-people',
+                image: 'assets/spawnta.png',
+                imageMode: 'screenshot',
                 imageLabel: 'SPAWNTA',
                 link: 'https://github.com/ism4il-04/spawnta',
                 linkLabel: 'Voir sur GitHub',
@@ -279,6 +424,9 @@ html(lang="en")
                 details: "Responsable du microservice de gestion des utilisateurs : conception d'un Identity Provider centralisé avec Spring Boot 4, source de vérité unique pour comptes, profils et rôles. Mise en place des tokens JWT, d'une API REST sécurisée avec Spring Security, de la conteneurisation Docker et coordination des contrats d'API avec 9 équipes dépendantes.",
                 tags: ['Spring Boot 4', 'Spring Security', 'JWT', 'REST API', 'Docker', 'API contracts'],
                 icon: 'bi-bus-front',
+                image: 'assets/sgitu.png',
+                imageMode: 'logo',
+                mediaBg: 'linear-gradient(135deg, #ecfeff 0%, #ffffff 48%, #f0fdf4 100%)',
                 imageLabel: 'SGITU',
                 link: 'https://github.com/Oumhella/SGITU-Microservices-Users-management-',
                 linkLabel: 'Voir sur GitHub',
@@ -292,6 +440,8 @@ html(lang="en")
                 details: "Conception d'une application JavaFX avec Sockets, intégration de HashiCorp Vault pour les secrets et certificats dynamiques, sécurisation via mTLS et AES-256, développement d'un IDS/IPS maison anti-spoofing et anti-bruteforce, MFA avec OTP, RSA et TOTP, ainsi qu'un contrôle d'accès strict RBAC.",
                 tags: ['JavaFX', 'Sockets', 'HashiCorp Vault', 'mTLS', 'AES-256', 'IDS/IPS', 'MFA', 'RBAC'],
                 icon: 'bi-lock',
+                image: 'assets/chriOnline.png',
+                imageMode: 'screenshot',
                 imageLabel: 'ChriOnline',
                 link: 'https://github.com/Oumhella/ChriOnline-Client-Server-App',
                 linkLabel: 'Voir sur GitHub',
@@ -306,6 +456,7 @@ html(lang="en")
                 tags: ['Flutter', 'Firebase', 'Mobile UI', 'Planning', 'Réservations', 'Rendez-vous'],
                 icon: 'bi-heart-pulse',
                 image: 'assets/medico.jpeg',
+                imageMode: 'screenshot',
                 imageLabel: 'Medico',
                 link: 'https://github.com/Oumhella/e-rendezvous-medecin',
                 linkLabel: 'Voir sur GitHub',
@@ -315,80 +466,46 @@ html(lang="en")
 
           .text-center.mb-4(style="animation: fadeInDown 0.8s ease-out;")
             h1.display-4.fw-bolder.mb-3
-              span.gradient-text(style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;") Mes Projets
+              span.gradient-text(style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 58%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;") Mes Projets
             p.lead(style="color: #4a5568; max-width: 760px; margin: 0 auto;") Une sélection de projets académiques et techniques en IA, systèmes intelligents, sécurité, web, microservices et mobile.
 
-          .project-filter-nav.mb-5(style="position: sticky; top: 0.75rem; z-index: 5; background: rgba(255, 255, 255, 0.86); backdrop-filter: blur(16px); border: 1px solid rgba(102, 126, 234, 0.18); border-radius: 1rem; padding: 0.85rem; box-shadow: 0 10px 30px rgba(45, 55, 72, 0.08);")
-            .d-flex.flex-wrap.justify-content-center.gap-2
-              a.btn.btn-sm(href="#all-projects", style="background: #2d3748; color: white; border-radius: 999px; padding: 0.55rem 1rem; font-weight: 700; transition: all 0.2s ease;")
+          .project-filter-nav.mb-4(style="position: sticky; top: 0.75rem; z-index: 5; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(16px); border: 1px solid rgba(30, 58, 138, 0.16); border-radius: 1rem; padding: 0.85rem; box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);")
+            .project-filter-list(role="list", aria-label="Filtrer les projets")
+              button.btn.btn-sm.project-filter-btn.is-active(type="button", data-filter="all", aria-pressed="true")
                 i.bi.bi-grid.me-1
                 span Tous
               each category in categories
-                a.btn.btn-sm(href=`#${category.id}`, style="background: white; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.14); border-radius: 999px; padding: 0.55rem 1rem; font-weight: 700; transition: all 0.2s ease;")
+                button.btn.btn-sm.project-filter-btn(type="button", data-filter=category.id, aria-pressed="false")
                   i.bi.me-1(class=category.icon)
                   span= category.label
+          p#project-filter-status.small.fw-bold.mb-4(style="color: #5f6b7a;", aria-live="polite") Tous les projets sont affichés.
 
-          #all-projects.row.g-4
+          #all-projects.row.g-4.project-grid
             each project, index in projects
-              .col-lg-6
-                .project-card.h-100(style=`background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out ${0.1 + index * 0.08}s both;`)
-                  .image-container.project-image-placeholder(style="position: relative; overflow: hidden;")
+              - const projectCategory = categories.find((category) => category.id === project.category)
+              .col-lg-6.project-card-shell(data-category=project.category)
+                .project-card(style=`background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(20px); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.09); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease; animation: fadeInUp 0.6s ease-out ${0.1 + index * 0.08}s both;`)
+                  .image-container.project-image-placeholder.project-media(class=[project.imageMode === 'screenshot' ? 'project-media--screenshot' : 'project-media--logo', project.logoTone === 'light' ? 'project-media--white-logo' : ''], style=project.mediaBg ? `--project-media-bg: ${project.mediaBg};` : null)
                     if project.image
-                      img(src=project.image, alt=project.imageAlt || project.title, style="width: 100%; height: 100%; min-height: 245px; object-fit: cover; transition: transform 0.4s ease;")
+                      img(src=project.image, alt=project.imageAlt || project.title)
                     else
-                      .text-center(style="color: #667eea;")
+                      .text-center(style="color: #1e3a8a;")
                         i.bi(style="font-size: 3.25rem;", class=project.icon)
                         p.mt-3.mb-0.fw-bold(style="color: #4a5568;")= project.imageLabel
-                    .overlay(style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(102, 126, 234, 0.72), rgba(56, 178, 172, 0.72)); opacity: 0; transition: opacity 0.3s ease;")
-                  .p-4
+                    .overlay(style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(17, 24, 39, 0.58), rgba(30, 58, 138, 0.54)); opacity: 0; transition: opacity 0.3s ease;")
+                  .project-content
                     .d-flex.flex-wrap.align-items-center.gap-2.mb-3
-                      span.badge(style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem;")= project.meta
-                      a.small.fw-bold(href=`#${project.category}`, style="color: #667eea; text-decoration: none;") Voir la catégorie
+                      span.badge(style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem;")= project.meta
+                      button.small.project-category-link(type="button", data-filter=project.category)= projectCategory ? projectCategory.label : 'Voir la catégorie'
                     h2.fw-bold.mb-3(style="color: #2d3748; font-size: 1.45rem; line-height: 1.25;")= project.title
                     p.mb-2(style="color: #4a5568; line-height: 1.65;")= project.summary
                     p.mb-3(style="color: #5f6b7a; line-height: 1.65;")= project.details
                     .tech-badges(style="display: flex; flex-wrap: wrap; gap: 0.45rem;")
                       each tag in project.tags
                         span.badge(style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem;")= tag
-                    a.btn.btn-primary.mt-4(href=project.link, target="_blank", style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease;")
+                    a.btn.btn-primary.mt-4.project-action(href=project.link, target="_blank", style="background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(17, 24, 39, 0.24); transition: all 0.3s ease;")
                       i.bi.me-2(class=project.linkIcon || 'bi-github')
                       span= project.linkLabel || 'Voir sur GitHub'
-
-          each category in categories
-            - const categoryProjects = projects.filter((project) => project.category === category.id)
-            section.mt-5(id=category.id, style="scroll-margin-top: 7rem;")
-              .d-flex.align-items-center.justify-content-between.flex-wrap.gap-3.mb-3
-                h2.fw-bolder.mb-0(style="color: #2d3748; font-size: 1.65rem;")
-                  i.bi.me-2(style="color: #667eea;", class=category.icon)
-                  span= category.label
-                a.small.fw-bold(href="#all-projects", style="color: #667eea; text-decoration: none;")
-                  i.bi.bi-arrow-up.me-1
-                  span Retour aux projets
-              .row.g-4
-                each project in categoryProjects
-                  .col-12
-                    .project-card(style="background: rgba(255, 255, 255, 0.94); border-radius: 1.25rem; overflow: hidden; box-shadow: 0 10px 32px rgba(45, 55, 72, 0.08); border: 1px solid rgba(255, 255, 255, 0.72); transition: all 0.35s ease;")
-                      .row.g-0.align-items-stretch
-                        .col-lg-4
-                          .image-container.project-image-placeholder(style="height: 100%; min-height: 240px;")
-                            if project.image
-                              img(src=project.image, alt=project.imageAlt || project.title, style="width: 100%; height: 100%; min-height: 240px; object-fit: cover;")
-                            else
-                              .text-center(style="color: #667eea;")
-                                i.bi(style="font-size: 3rem;", class=project.icon)
-                                p.mt-3.mb-0.fw-bold(style="color: #4a5568;")= project.imageLabel
-                        .col-lg-8
-                          .p-4.p-lg-5
-                            span.badge.mb-3(style="background: #2d3748; color: white; padding: 0.45rem 0.75rem; border-radius: 999px; font-size: 0.78rem;")= project.meta
-                            h3.fw-bold.mb-3(style="color: #2d3748;")= project.title
-                            p.mb-2(style="color: #4a5568; line-height: 1.7;")= project.summary
-                            p.mb-3(style="color: #5f6b7a; line-height: 1.7;")= project.details
-                            .tech-badges(style="display: flex; flex-wrap: wrap; gap: 0.45rem;")
-                              each tag in project.tags
-                                span.badge(style="background: #edf2f7; color: #2d3748; border: 1px solid rgba(45, 55, 72, 0.08); padding: 0.42rem 0.72rem; border-radius: 0.65rem; font-size: 0.78rem;")= tag
-                            a.btn.btn-primary.mt-4(href=project.link, target="_blank", style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 1.5rem; padding: 0.72rem 1.5rem; font-weight: 600; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.32); transition: all 0.3s ease;")
-                              i.bi.me-2(class=project.linkIcon || 'bi-github')
-                              span= project.linkLabel || 'Voir sur GitHub'
 
       // Call to action section
       section.py-5.bg-gradient-primary-to-secondary.text-white
@@ -399,3 +516,45 @@ html(lang="en")
     // Footer
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js")
     script(src="js/scripts.js")
+    script.
+      document.addEventListener('DOMContentLoaded', () => {
+        const filterButtons = Array.from(document.querySelectorAll('.project-filter-btn'));
+        const filterTriggers = Array.from(document.querySelectorAll('[data-filter]'));
+        const projectCards = Array.from(document.querySelectorAll('.project-card-shell'));
+        const status = document.getElementById('project-filter-status');
+        const grid = document.getElementById('all-projects');
+
+        if (!filterTriggers.length || !projectCards.length || !grid) return;
+
+        const labels = new Map(
+          filterButtons.map((button) => [button.dataset.filter, button.textContent.trim()])
+        );
+
+        function applyFilter(filter) {
+          let visibleCount = 0;
+
+          projectCards.forEach((card) => {
+            const isVisible = filter === 'all' || card.dataset.category === filter;
+            card.classList.toggle('is-hidden', !isVisible);
+            if (isVisible) visibleCount += 1;
+          });
+
+          filterButtons.forEach((button) => {
+            const isActive = button.dataset.filter === filter;
+            button.classList.toggle('is-active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+          });
+
+          if (status) {
+            status.textContent = filter === 'all'
+              ? 'Tous les projets sont affichés.'
+              : `${visibleCount} projet${visibleCount > 1 ? 's' : ''} affiché${visibleCount > 1 ? 's' : ''} dans ${labels.get(filter)}.`;
+          }
+
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        filterTriggers.forEach((button) => {
+          button.addEventListener('click', () => applyFilter(button.dataset.filter));
+        });
+      });
